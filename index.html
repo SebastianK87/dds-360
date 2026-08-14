@@ -403,12 +403,29 @@
 .dds-e .e-tk.top li::before{color:var(--ink)}
 .dds-e .e-tk .e-btn{margin-top:auto;width:100%;font-size:15px;padding:15px 22px}
 .dds-e .e-tk.top .e-btn{background:var(--ink);color:var(--ice)}
-.dds-e .e-cd{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;margin-top:30px;
-  background:rgba(169,216,236,.1);border:1px solid rgba(169,216,236,.3);border-radius:var(--r);
-  padding:16px clamp(16px,2vw,26px);font-weight:700;font-size:13.5px;letter-spacing:.05em;
-  text-transform:uppercase}
-.dds-e .e-cd b{color:var(--ice);font-family:dds-q;font-weight:900;font-size:20px}
-.dds-e .e-cd .rest{color:rgba(255,255,255,.55);font-weight:500;text-transform:none;letter-spacing:0}
+/* Early-Bird-Marke auf der Ticketkarte */
+.dds-e .e-tk .e-ebtag{align-self:flex-start;font-weight:700;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;background:var(--ice);color:var(--ink);border-radius:999px;
+  padding:5px 11px;margin-bottom:12px}
+.dds-e .e-tk.top .e-ebtag{background:var(--ink);color:var(--ice)}
+.dds-e .e-tk .old.is-leer{margin-bottom:16px}
+
+/* Laufender Countdown */
+.dds-e .e-cd{display:flex;flex-wrap:wrap;align-items:center;gap:14px clamp(18px,2.6vw,34px);
+  margin-top:clamp(26px,3.4vw,42px);background:rgba(169,216,236,.09);
+  border:1px solid rgba(169,216,236,.32);border-radius:var(--r);
+  padding:clamp(16px,2.2vw,26px) clamp(16px,2.4vw,30px)}
+.dds-e .e-cd .lbl{font-weight:700;font-size:clamp(10px,1.15vw,13px);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ice)}
+.dds-e .e-cd .uhr{display:flex;gap:clamp(10px,1.6vw,22px)}
+.dds-e .e-cdz{display:flex;flex-direction:column;align-items:center;min-width:clamp(46px,6vw,74px)}
+.dds-e .e-cdz b{font-family:dds-q;font-weight:900;color:var(--ice);line-height:.85;
+  font-size:clamp(30px,4.6vw,58px);font-variant-numeric:tabular-nums;
+  text-shadow:0 0 34px rgba(169,216,236,.35)}
+.dds-e .e-cdz i{font-style:normal;font-weight:700;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:8px}
+.dds-e .e-cd .rest{font-weight:500;font-size:13px;color:rgba(255,255,255,.55);margin-left:auto}
+@media(max-width:720px){.dds-e .e-cd .rest{margin-left:0;flex-basis:100%}}
 
 /* ===================== 06 SHOP ===================== */
 .dds-e .e-shop{display:grid;grid-template-columns:repeat(auto-fit,minmax(226px,1fr));gap:14px;margin-top:32px}
@@ -564,10 +581,11 @@
     <p class="e-kick">Tickets</p>
     <h2 class="e-h">Wähl deinen <em>Weg rein</em></h2>
     <div class="e-tix" id="e-tix"></div>
-    <p class="e-cd">
-      <span>Early Bird endet in</span> <b id="e-cd">–</b>
-      <span class="rest">danach Full Pass 319 € · Tagespass 129 €</span>
-    </p>
+    <div class="e-cd">
+      <span class="lbl" id="e-cdlabel">Early Bird endet in</span>
+      <span class="uhr" id="e-cd"></span>
+      <span class="rest" id="e-cdrest"></span>
+    </div>
   </div>
 </section>
 
@@ -671,14 +689,17 @@ const THREE_URL = "https://unpkg.com/three@0.169.0/build/three.module.js";
 
 // Eversports-Direktlinks
 const EVENT = "https://www.eversports.de/e/event/eW_ONsh";
+
+/* Preise in Zahlen, nicht als Text — damit am 01.09. automatisch der
+   reguläre Preis nach vorn rutscht, ohne dass jemand etwas anfasst. */
 const TICKETS = [
-  { key:"full", tag:"Alle drei Tage", name:"Full Pass", price:"249 €", old:"regulär 319 €", top:true,
+  { key:"full", tag:"Alle drei Tage", name:"Full Pass", eb:249, regulaer:319, top:true,
     li:["Alle 3 Tage","Alle 28 Workshops zur Auswahl","Alle 18 Coaches"], cta:"Full Pass sichern", url:EVENT },
-  { key:"fr", tag:"Freitag 16.10.", name:"Tagespass", price:"99 €", old:"regulär 129 €",
+  { key:"fr", tag:"Freitag 16.10.", name:"Tagespass", eb:99, regulaer:129,
     li:["10:00–20:00 Uhr","Workshops des Tages"], cta:"Freitag buchen", url:EVENT },
-  { key:"sa", tag:"Samstag 17.10.", name:"Tagespass", price:"99 €", old:"regulär 129 €",
+  { key:"sa", tag:"Samstag 17.10.", name:"Tagespass", eb:99, regulaer:129,
     li:["10:00–18:30 Uhr","Workshops des Tages"], cta:"Samstag buchen", url:EVENT },
-  { key:"so", tag:"Sonntag 18.10.", name:"Tagespass", price:"99 €", old:"regulär 129 €",
+  { key:"so", tag:"Sonntag 18.10.", name:"Tagespass", eb:99, regulaer:129,
     li:["10:00–17:00 Uhr","Workshops des Tages"], cta:"Sonntag buchen", url:EVENT }
 ];
 
@@ -782,7 +803,10 @@ const SHOP = [
   { h:"10er-Karte",   p:"149 €", s:"10 Einheiten · 6 Monate",      a:"Karte holen", url:"https://www.eversports.de/sp/ds-dance-school" }
 ];
 
-const EARLY_BIRD_END = "2026-09-01T00:00:00+02:00";
+const EARLY_BIRD_END = "2026-09-01T00:00:00+02:00";   // Early Bird läuft bis 31.08. 24:00
+const EVENT_START    = "2026-10-16T10:00:00+02:00";   // danach zählt es aufs Event
+const istEB = () => Date.now() < new Date(EARLY_BIRD_END).getTime();
+const eur = n => n.toLocaleString("de-DE") + " €";
 const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
   ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
@@ -804,16 +828,27 @@ $$("[data-tix]").forEach(a => {
 { const r = $("#e-rep");
   if (r) r.innerHTML = Array.from({length:8}, () => "360 IS BACK! ".repeat(6)).join("<br>"); }
 
-/* ══════════════ Tickets ══════════════ */
-$("#e-tix").innerHTML = TICKETS.map(t => `
-  <article class="e-tk${t.top ? " top" : ""}">
-    <p class="tag">${esc(t.tag)}</p>
-    <h4>${esc(t.name)}</h4>
-    <p class="pr">${esc(t.price)}</p>
-    <p class="old">${esc(t.old)}</p>
-    <ul>${t.li.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
-    <a class="e-btn" href="${esc(t.url)}" target="_blank" rel="noopener">${esc(t.cta)}</a>
-  </article>`).join("");
+/* ══════════════ Tickets — Preis richtet sich nach dem Datum ══════════════ */
+{
+  const eb = istEB();
+  $("#e-tix").innerHTML = TICKETS.map(t => `
+    <article class="e-tk${t.top ? " top" : ""}">
+      <p class="tag">${esc(t.tag)}</p>
+      <h4>${esc(t.name)}</h4>
+      ${eb ? `<span class="e-ebtag">Early Bird</span>` : ""}
+      <p class="pr">${esc(eur(eb ? t.eb : t.regulaer))}</p>
+      ${eb ? `<p class="old">regulär ${esc(eur(t.regulaer))}</p>` : `<p class="old is-leer"></p>`}
+      <ul>${t.li.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      <a class="e-btn" href="${esc(t.url)}" target="_blank" rel="noopener">${esc(t.cta)}</a>
+    </article>`).join("");
+
+  // Preishinweise an allen anderen Stellen mitziehen
+  const ab = eur(eb ? TICKETS[0].eb : TICKETS[0].regulaer);
+  $$(".e-sticky .l b").forEach(e => e.textContent = ab);
+  $$(".e-eb").forEach(e => e.textContent = eb
+    ? "Early Bird nur bis 31.08."
+    : "16.–18. Oktober 2026 · D!'s Dance World Berlin");
+}
 
 /* ══════════════ Shop ══════════════ */
 $("#e-shop").innerHTML = SHOP.map(s => `
@@ -822,13 +857,36 @@ $("#e-shop").innerHTML = SHOP.map(s => `
     <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.a)} →</a>
   </article>`).join("");
 
-/* ══════════════ Countdown ══════════════ */
-{ const el = $("#e-cd");
+/* ══════════════ Laufender Countdown ══════════════
+   Vor dem 01.09. zählt er auf das Ende des Early Bird, danach auf den
+   Eventstart. So steht dort nie „beendet". Sekundengenau. */
+{
+  const wrap = $("#e-cd");
+  const felder = [["tage","Tage"],["std","Std"],["min","Min"],["sek","Sek"]];
+  wrap.innerHTML = felder.map(([k,l]) =>
+    `<span class="e-cdz"><b data-cd="${k}">–</b><i>${l}</i></span>`).join("");
+  const setz = k => wrap.querySelector(`[data-cd="${k}"]`);
+  const zellen = Object.fromEntries(felder.map(([k]) => [k, setz(k)]));
+  const label = $("#e-cdlabel"), rest = $("#e-cdrest");
+
   const tick = () => {
-    const d = Math.ceil((new Date(EARLY_BIRD_END) - Date.now()) / 864e5);
-    el.textContent = d > 1 ? d + " Tagen" : d === 1 ? "1 Tag" : "— beendet";
+    const eb = istEB();
+    const ziel = new Date(eb ? EARLY_BIRD_END : EVENT_START).getTime();
+    let s = Math.max(0, Math.floor((ziel - Date.now()) / 1000));
+    const tage = Math.floor(s / 86400); s -= tage * 86400;
+    const std  = Math.floor(s / 3600);  s -= std * 3600;
+    const min  = Math.floor(s / 60);    s -= min * 60;
+    const zz = n => String(n).padStart(2, "0");
+    zellen.tage.textContent = tage;
+    zellen.std.textContent  = zz(std);
+    zellen.min.textContent  = zz(min);
+    zellen.sek.textContent  = zz(s);
+    if (label) label.textContent = eb ? "Early Bird endet in" : "Es geht los in";
+    if (rest)  rest.textContent  = eb
+      ? `danach ${eur(TICKETS[0].regulaer)} · Tagespass ${eur(TICKETS[1].regulaer)}`
+      : "Tickets solange verfügbar";
   };
-  tick(); setInterval(tick, 36e5);
+  tick(); setInterval(tick, 1000);
 }
 
 /* ══════════════ Timetable ══════════════ */
