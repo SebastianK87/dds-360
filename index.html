@@ -1,0 +1,1383 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>360 D!Grees Special Coaching — Vorschau</title>
+<meta name="robots" content="noindex">
+<style>html,body{margin:0;padding:0;background:#272727}</style>
+</head><body>
+<!--
+  ============================================================================
+  360 D!GREES SPECIAL COACHING — Eventseite
+  Move Society · Stand 13.08.2026
+  ----------------------------------------------------------------------------
+  EINBAU: Elementor-Widget „HTML" auf /event/360-dgrees-special-coaching/
+  Seitenvorlage: Elementor Canvas (kein Theme-Kopf/-Fuß)
+  Alles ist unter .dds-e gekapselt — das Theme wird nicht angefasst.
+
+  ZU PFLEGEN (alles ganz oben im <script>, Abschnitt „DATEN"):
+    MEDIA      — Ordner mit den Coach-Bildern und -Videos
+    TICKETS    — die vier Eversports-Direktlinks
+    COACHES    — 18 Einträge: Land, Name, Stil, Level, Tag, Datei, Bio
+    PLAN       — Timetable je Tag
+  ============================================================================
+-->
+
+<div class="dds-e" data-dds-360>
+
+<style>
+/* ===================== SCHRIFTEN (liegen bereits auf dem Server) ===================== */
+@font-face{font-family:dds-q;font-weight:900;font-display:swap;
+  src:url(prototyp/fonts/Queering-HeavyExpanded.woff2) format("woff2")}
+@font-face{font-family:dds-q;font-weight:700;font-display:swap;
+  src:url(prototyp/fonts/Queering-BoldExpanded.woff2) format("woff2")}
+@font-face{font-family:dds-o;font-weight:700;font-display:swap;
+  src:url(prototyp/fonts/OverusedGrotesk-Bold.woff2) format("woff2")}
+@font-face{font-family:dds-o;font-weight:500;font-display:swap;
+  src:url(prototyp/fonts/OverusedGrotesk-Medium.woff2) format("woff2")}
+
+/* ===================== TOKENS + RESET (nur im Block) ===================== */
+.dds-e{
+  --ink:#272727; --ice:#A9D8EC; --ice-d:#96CFE7; --ice-l:#C8E6F3;
+  --grey:#D9D9D9; --grey2:#CBCBCB; --white:#fff;
+  --r:18px; --ease:cubic-bezier(.16,1,.3,1);
+  --pad:clamp(18px,4vw,54px);
+  --sec:clamp(56px,7vw,112px);
+  background:var(--ink); color:var(--white);
+  font-family:dds-o,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-weight:500; font-size:16px; line-height:1.62;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  margin:0; padding:0; overflow-x:clip;
+}
+.dds-e *,.dds-e *::before,.dds-e *::after{box-sizing:border-box}
+.dds-e p,.dds-e h1,.dds-e h2,.dds-e h3,.dds-e h4,.dds-e figure,.dds-e ul,.dds-e ol{margin:0;padding:0}
+.dds-e ul,.dds-e ol{list-style:none}
+.dds-e img,.dds-e video{display:block;max-width:100%;height:auto}
+.dds-e a{color:inherit;text-decoration:none}
+.dds-e button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+.dds-e .e-sec{position:relative;padding:var(--sec) var(--pad);overflow:hidden}
+.dds-e .e-wrap{max-width:1180px;margin:0 auto;position:relative;z-index:2}
+.dds-e .e-ice{background:var(--ice);color:var(--ink)}
+.dds-e .e-lite{background:var(--grey);color:var(--ink)}
+
+/* Sektionsköpfe zentriert — Karten und Listen bleiben linksbündig lesbar */
+.dds-e .e-kick,.dds-e .e-h,.dds-e .e-lead{text-align:center}
+.dds-e .e-lead{margin-left:auto;margin-right:auto}
+.dds-e .e-kick{font-weight:700;text-transform:uppercase;letter-spacing:.3em;
+  font-size:clamp(9px,1.1vw,12px);color:var(--ice);margin-bottom:18px}
+.dds-e .e-ice .e-kick,.dds-e .e-lite .e-kick{color:var(--ink);opacity:.6}
+.dds-e .e-h{font-family:dds-q;font-weight:900;text-transform:uppercase;line-height:.86;
+  font-size:clamp(30px,5.4vw,68px);letter-spacing:-.01em;margin-bottom:.42em}
+.dds-e .e-h em{font-style:normal;color:var(--ice)}
+.dds-e .e-ice .e-h em,.dds-e .e-lite .e-h em{color:var(--white)}
+.dds-e .e-lead{font-size:clamp(15px,1.55vw,19px);line-height:1.66;max-width:62ch;
+  color:rgba(255,255,255,.76);margin-bottom:1.2em}
+.dds-e .e-ice .e-lead,.dds-e .e-lite .e-lead{color:rgba(39,39,39,.8)}
+
+/* Mosaik-Textur */
+.dds-e .e-mos{position:absolute;inset:0;z-index:0;display:grid;grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:6vmin;gap:1vmin;opacity:.3;pointer-events:none}
+.dds-e .e-hero .e-mos{opacity:.5}
+.dds-e .e-mos i{border-radius:2vmin;background:#2f2f2f}
+.dds-e .e-mos i.b{background:rgba(169,216,236,.13)}
+.dds-e .e-mos i.c{background:rgba(169,216,236,.25)}
+.dds-e .e-mos i.d{background:#212121}
+
+/* Wiederholungs-Typo */
+.dds-e .e-rep{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;user-select:none;
+  font-family:dds-q;font-weight:900;text-transform:uppercase;font-size:clamp(28px,5vw,62px);
+  line-height:1.06;color:rgba(255,255,255,.055);white-space:nowrap}
+
+/* Buttons */
+.dds-e .e-btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;
+  background:var(--ice);color:var(--ink);font-family:dds-q;font-weight:900;text-transform:uppercase;
+  font-size:clamp(14px,1.6vw,18px);padding:16px 30px;border-radius:999px;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);will-change:transform}
+.dds-e .e-btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(169,216,236,.3)}
+.dds-e .e-btn:focus-visible{outline:3px solid var(--white);outline-offset:3px}
+
+/* ===================== 01 HERO ===================== */
+.dds-e .e-hero{position:relative;min-height:min(100svh,880px);display:flex;flex-direction:column;
+  background:var(--ink);overflow:hidden;isolation:isolate}
+.dds-e .e-hero .e-poster{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;
+  transition:opacity .9s ease}
+.dds-e .e-hero.is-3d .e-poster{opacity:0}
+.dds-e .e-hero canvas{position:absolute;inset:0;z-index:1;width:100%;height:100%;display:block;
+  opacity:0;transition:opacity 1s ease;touch-action:pan-y;cursor:grab}
+.dds-e .e-hero.is-3d canvas{opacity:1}
+.dds-e .e-hero canvas:active{cursor:grabbing}
+.dds-e .e-glow{position:absolute;z-index:0;left:50%;top:46%;transform:translate(-50%,-50%);
+  width:min(115vmin,1000px);aspect-ratio:1;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(169,216,236,.2) 0%,rgba(169,216,236,.06) 42%,transparent 68%)}
+.dds-e .e-veil{position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(39,39,39,.62) 0%,rgba(39,39,39,.05) 22%,
+    rgba(39,39,39,.18) 44%,rgba(39,39,39,.82) 72%,rgba(39,39,39,.97) 90%,var(--ink) 100%)}
+.dds-e .e-top{position:relative;z-index:3;display:flex;justify-content:space-between;gap:16px;
+  padding:clamp(14px,2.4vw,26px) var(--pad);font-weight:700;font-size:clamp(9px,1vw,12px);
+  letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.dds-e .e-hbot{position:relative;z-index:3;margin-top:auto;padding:0 var(--pad) clamp(28px,3.8vw,52px);
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(14px,2vw,24px)}
+.dds-e .e-hbot .l{max-width:min(760px,92vw)}
+.dds-e .e-hbot .r{display:flex;flex-direction:column;align-items:center}
+.dds-e .e-mark{font-family:dds-q;font-weight:900;text-transform:uppercase;line-height:.82;
+  font-size:clamp(30px,5.6vw,76px);letter-spacing:-.01em;margin-bottom:.34em}
+.dds-e .e-mark span{color:var(--ice)}
+.dds-e .e-sub{font-weight:700;text-transform:uppercase;letter-spacing:.3em;
+  font-size:clamp(9px,1.1vw,13px);color:var(--ice);margin-bottom:1.1em}
+.dds-e .e-facts{display:flex;flex-wrap:wrap;justify-content:center;gap:.4em 1.5em;font-weight:700;
+  font-size:clamp(12px,1.4vw,17px);text-transform:uppercase;margin-bottom:1.3em}
+.dds-e .e-facts b{color:var(--ice)}
+.dds-e .e-venue{font-weight:500;font-size:clamp(11px,1.1vw,13.5px);color:rgba(255,255,255,.56)}
+.dds-e .e-eb{display:block;font-weight:700;font-size:clamp(9px,1vw,11px);letter-spacing:.17em;
+  text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:.9em}
+.dds-e .e-hint{position:absolute;z-index:3;left:50%;bottom:clamp(160px,21vh,250px);transform:translateX(-50%);
+  font-weight:700;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.32);
+  pointer-events:none;transition:opacity .6s;white-space:nowrap}
+.dds-e .e-hint.off{opacity:0}
+@media(max-width:760px){
+  .dds-e .e-hbot{flex-direction:column;align-items:stretch}
+  .dds-e .e-hbot .e-btn{width:100%}
+  .dds-e .e-hint{display:none}
+}
+
+/* ===================== 02 ZAHLEN — die Ansage ===================== */
+.dds-e .e-nums{display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  margin:clamp(40px,5vw,72px) calc(var(--pad)*-1) 0;border-top:1px solid rgba(169,216,236,.28);
+  border-bottom:1px solid rgba(169,216,236,.28)}
+.dds-e .e-num{padding:clamp(24px,3.6vw,52px) clamp(10px,1.6vw,26px);text-align:center;
+  border-left:1px solid rgba(169,216,236,.18);position:relative}
+.dds-e .e-num:first-child{border-left:0}
+.dds-e .e-num b{display:block;font-family:dds-q;font-weight:900;
+  font-size:clamp(58px,11vw,168px);line-height:.8;color:var(--ice);
+  margin-bottom:.14em;font-variant-numeric:tabular-nums;
+  text-shadow:0 0 60px rgba(169,216,236,.35)}
+.dds-e .e-num span{display:block;font-weight:700;text-transform:uppercase;letter-spacing:.2em;
+  font-size:clamp(10px,1.25vw,15px);color:rgba(255,255,255,.7)}
+@media(max-width:720px){
+  .dds-e .e-nums{grid-template-columns:repeat(2,1fr)}
+  .dds-e .e-num{border-top:1px solid rgba(169,216,236,.18)}
+  .dds-e .e-num:nth-child(-n+2){border-top:0}
+  .dds-e .e-num:nth-child(odd){border-left:0}
+}
+
+/* ===================== RECAP-FILM (vollflächig) ===================== */
+/* Breite zuerst, Höhe folgt. aspect-ratio + max-height zusammen würde die
+   Breite stauchen — dann wäre der Film nicht mehr vollflächig. */
+.dds-e .e-film{position:relative;margin:clamp(38px,5vw,66px) calc(var(--pad)*-1) 0;
+  width:auto;height:min(56.25vw,78svh);overflow:hidden;background:#1a1a1a;isolation:isolate}
+.dds-e .e-film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.dds-e .e-film::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(39,39,39,.55) 0%,transparent 26%,
+    transparent 62%,rgba(39,39,39,.8) 100%)}
+/* Signature-Kacheln greifen über die Ränder ins Bild */
+.dds-e .e-filmtiles{position:absolute;inset:0;z-index:4;pointer-events:none;display:block}
+.dds-e .e-filmtiles i{position:absolute;border-radius:clamp(10px,1.5vw,22px);display:block}
+
+/* Deckendes Mosaik: liegt zuerst auf dem Video und blättert sich dann auf */
+.dds-e .e-filmcover{position:absolute;inset:0;z-index:3;pointer-events:none;display:block}
+.dds-e .e-filmcover i{position:absolute;display:block;border-radius:clamp(8px,1.2vw,18px);
+  background:var(--ink);opacity:1;transform:none;will-change:opacity,transform;
+  transition:opacity 1.5s var(--ease),transform 1.9s var(--ease);
+  transition-delay:var(--dr,0ms)}          /* Zurück: umgekehrte Reihenfolge */
+.dds-e .e-filmcover i.ice{background:var(--ice-d)}
+.dds-e .e-filmcover i.dark{background:#1b1f21}
+.dds-e .e-filmcover.auf i{opacity:0;transform:scale(.76) translateY(-14px);
+  transition-delay:var(--d,0ms)}
+@media(prefers-reduced-motion:reduce){
+  .dds-e .e-filmcover i{transition:none}
+  .dds-e .e-filmcover.auf i{opacity:0;transform:none}
+}
+
+.dds-e .e-filmcap{position:absolute;z-index:6;left:var(--pad);bottom:clamp(16px,2.4vw,28px);
+  font-family:dds-q;font-weight:900;text-transform:uppercase;font-size:clamp(15px,2vw,26px);
+  color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.dds-e .e-sound{position:absolute;z-index:6;right:var(--pad);bottom:clamp(16px,2.4vw,28px);
+  display:inline-flex;align-items:center;gap:.5em;background:rgba(39,39,39,.8);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  border:1px solid rgba(169,216,236,.45);color:var(--ice);border-radius:999px;
+  padding:9px 16px;font-family:dds-o;font-weight:700;font-size:11.5px;letter-spacing:.14em;
+  text-transform:uppercase;transition:background .3s,transform .3s var(--ease)}
+.dds-e .e-sound:hover{background:var(--ice);color:var(--ink);transform:translateY(-2px)}
+.dds-e .e-sound .ic{font-size:13px}
+@media(max-width:620px){
+  .dds-e .e-film{height:min(75vw,62svh)}
+  .dds-e .e-filmcap{font-size:14px;bottom:12px}
+  .dds-e .e-sound{bottom:12px;padding:7px 12px;font-size:10px}
+}
+
+/* ===================== 03 LINE-UP ===================== */
+.dds-e .e-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(206px,1fr));
+  gap:clamp(10px,1.3vw,18px);margin-top:38px}
+@media(max-width:520px){.dds-e .e-grid{grid-template-columns:repeat(2,1fr);gap:9px}}
+
+/* ---- Line-up: versetzte Reihe (ab 900px) ----
+   Freigestellte Figuren auf Ink, jede zweite tiefer gesetzt. Ruhiger Takt
+   statt Collagen-Durcheinander — und trotzdem kein Raster von der Stange. */
+.dds-e .e-grid.is-lineup{grid-template-columns:repeat(6,1fr);gap:clamp(8px,1vw,15px);
+  padding-bottom:clamp(24px,3.4vw,56px)}
+.dds-e .e-grid.is-lineup .e-coach{transform:translateY(0);
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),opacity .4s ease}
+.dds-e .e-grid.is-lineup .e-coach:nth-child(even){transform:translateY(clamp(20px,3vw,52px))}
+.dds-e .e-grid.is-lineup .e-coach:hover,
+.dds-e .e-grid.is-lineup .e-coach:focus-visible,
+.dds-e .e-grid.is-lineup .e-coach.playing{
+  transform:translateY(clamp(-10px,-1.2vw,-6px)) scale(1.07);z-index:50;
+  box-shadow:0 28px 64px rgba(0,0,0,.6)}
+.dds-e .e-grid.is-lineup .e-coach:nth-child(even):hover,
+.dds-e .e-grid.is-lineup .e-coach:nth-child(even):focus-visible,
+.dds-e .e-grid.is-lineup .e-coach:nth-child(even).playing{
+  transform:translateY(clamp(12px,2vw,42px)) scale(1.07)}
+/* Der Rest tritt zurück, sobald einer gegriffen wird */
+.dds-e .e-grid.is-lineup:hover .e-coach{opacity:.55}
+.dds-e .e-grid.is-lineup:hover .e-coach:hover{opacity:1}
+@media(max-width:1120px){.dds-e .e-grid.is-lineup{grid-template-columns:repeat(5,1fr)}}
+.dds-e .e-coach{position:relative;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;
+  background:#1c1c1c;cursor:pointer;isolation:isolate}
+.dds-e .e-coach img,.dds-e .e-coach video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dds-e .e-coach img{z-index:1;transition:transform .85s var(--ease),opacity .5s ease .12s}
+.dds-e .e-coach:hover img{transform:scale(1.06)}
+/* Video schwingt ein, statt platt aufzublenden */
+.dds-e .e-coach video{z-index:2;opacity:0;transform:scale(1.14);
+  transition:opacity .55s ease,transform 1.15s var(--ease)}
+.dds-e .e-coach.playing video{opacity:1;transform:scale(1)}
+.dds-e .e-coach.playing img{opacity:0;transform:scale(1.1)}
+
+/* Lichtwisch im Moment der Übergabe — das Mosaik-Motiv als Bewegung */
+.dds-e .e-coach .e-sweep{position:absolute;z-index:6;top:-25%;bottom:-25%;left:-70%;width:70%;
+  pointer-events:none;opacity:0;transform:skewX(-14deg) translateX(0);
+  background:linear-gradient(100deg,transparent 0%,rgba(169,216,236,.0) 30%,
+    rgba(169,216,236,.75) 50%,rgba(255,255,255,.9) 56%,rgba(169,216,236,0) 76%,transparent 100%)}
+.dds-e .e-coach.playing .e-sweep{animation:dds-sweep .9s cubic-bezier(.3,0,.2,1) forwards}
+@keyframes dds-sweep{
+  0%{opacity:0;transform:skewX(-14deg) translateX(0)}
+  15%{opacity:1}
+  85%{opacity:1}
+  100%{opacity:0;transform:skewX(-14deg) translateX(340%)}}
+
+/* Ladezustand — sonst passiert bei langsamer Leitung sichtbar nichts */
+.dds-e .e-coach .e-load{position:absolute;left:0;bottom:0;height:2px;width:38%;z-index:7;
+  background:var(--ice);opacity:0;transform:translateX(-100%);border-radius:2px}
+.dds-e .e-coach.loading .e-load{opacity:1;animation:dds-load 1.05s linear infinite}
+@keyframes dds-load{from{transform:translateX(-100%)}to{transform:translateX(360%)}}
+
+.dds-e .e-coach .e-meta{transition:transform .6s var(--ease)}
+.dds-e .e-coach.playing .e-meta{transform:translateY(-4px)}
+.dds-e .e-coach::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(to top,rgba(18,18,18,.94) 0%,rgba(18,18,18,.32) 42%,transparent 70%)}
+.dds-e .e-coach .e-ring{position:absolute;inset:0;z-index:5;border-radius:var(--r);pointer-events:none;
+  border:2px solid transparent;transition:border-color .35s}
+.dds-e .e-coach:hover .e-ring,.dds-e .e-coach.playing .e-ring{border-color:var(--ice)}
+.dds-e .e-coach .e-meta{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:clamp(12px,1.5vw,18px)}
+.dds-e .e-coach .e-flag{font-weight:700;font-size:10px;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--ice);margin-bottom:6px}
+.dds-e .e-coach .e-nm{font-family:dds-q;font-weight:900;text-transform:uppercase;line-height:.87;
+  font-size:clamp(16px,1.85vw,22px);margin-bottom:5px}
+.dds-e .e-coach .e-st{font-weight:500;font-size:12.5px;color:rgba(255,255,255,.72)}
+.dds-e .e-coach .e-play{position:absolute;z-index:5;top:11px;right:11px;width:34px;height:34px;
+  border-radius:50%;background:rgba(169,216,236,.94);color:var(--ink);display:grid;place-items:center;
+  font-size:11px;transition:transform .4s var(--ease)}
+.dds-e .e-coach:hover .e-play{transform:scale(1.15)}
+.dds-e .e-coach.playing .e-play{transform:scale(.86);opacity:.75}
+/* Mobil-Kennzeichnung: ohne Hover muss sichtbar sein, dass ein Video dahinter liegt */
+.dds-e .e-coach .e-tap{position:absolute;z-index:5;top:11px;left:11px;display:none;align-items:center;
+  gap:5px;background:rgba(39,39,39,.84);border:1px solid rgba(169,216,236,.5);border-radius:999px;
+  padding:5px 10px;font-weight:700;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ice)}
+@media(hover:none),(pointer:coarse){.dds-e .e-coach .e-tap{display:inline-flex}}
+.dds-e .e-coach[data-novideo] .e-play,.dds-e .e-coach[data-novideo] .e-tap{display:none}
+
+/* Coach-Lightbox */
+.dds-e .e-lb{position:fixed;inset:0;z-index:99999;display:none;place-items:center;padding:20px;
+  background:rgba(18,18,18,.9);backdrop-filter:blur(10px)}
+.dds-e .e-lb[open],.dds-e .e-lb.on{display:grid}
+.dds-e .e-lb .box{position:relative;width:min(940px,100%);max-height:88svh;overflow:auto;
+  background:var(--ink);border:1px solid rgba(169,216,236,.28);border-radius:var(--r);
+  display:grid;grid-template-columns:minmax(0,44%) minmax(0,1fr)}
+@media(max-width:720px){.dds-e .e-lb .box{grid-template-columns:1fr}}
+.dds-e .e-lb .vis{position:relative;aspect-ratio:4/5;background:#1a1a1a}
+.dds-e .e-lb .vis img,.dds-e .e-lb .vis video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dds-e .e-lb .txt{padding:clamp(22px,3vw,38px)}
+.dds-e .e-lb .txt .e-flag{font-weight:700;font-size:10.5px;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--ice);margin-bottom:10px}
+.dds-e .e-lb .txt h3{font-family:dds-q;font-weight:900;text-transform:uppercase;line-height:.88;
+  font-size:clamp(24px,3.2vw,40px);margin-bottom:12px}
+.dds-e .e-lb .txt .st{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:13px;
+  color:var(--ice);margin-bottom:18px}
+.dds-e .e-lb .txt p{font-size:15px;line-height:1.66;color:rgba(255,255,255,.74);margin-bottom:1em}
+.dds-e .e-lb .x{position:absolute;top:10px;right:12px;z-index:6;width:38px;height:38px;border-radius:50%;
+  background:rgba(39,39,39,.9);border:1px solid rgba(169,216,236,.4);color:var(--ice);font-size:17px}
+
+/* ===================== 04 TIMETABLE ===================== */
+.dds-e .e-days{display:flex;gap:8px;margin:32px 0 22px;flex-wrap:wrap}
+.dds-e .e-day{font-family:dds-q;font-weight:900;text-transform:uppercase;font-size:15px;padding:11px 20px;
+  border-radius:999px;border:1px solid rgba(255,255,255,.24);color:rgba(255,255,255,.7);
+  transition:background .25s,color .25s,border-color .25s}
+.dds-e .e-day[aria-selected=true]{background:var(--ice);color:var(--ink);border-color:var(--ice)}
+.dds-e .e-slots{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;align-items:start}
+.dds-e .e-slot{display:grid;grid-template-columns:98px 58px 1fr;grid-template-rows:auto auto;
+  gap:2px 14px;align-items:center;padding:12px 16px;border-radius:14px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  transition:border-color .3s,background .3s,transform .3s var(--ease)}
+.dds-e .e-slot:hover{background:rgba(169,216,236,.1);border-color:rgba(169,216,236,.42);
+  transform:translateX(3px)}
+.dds-e .e-slot .t{grid-row:1/3;font-family:dds-q;font-weight:900;color:var(--ice);
+  font-size:clamp(15px,1.5vw,19px);line-height:1.1}
+.dds-e .e-slot .th{grid-row:1/3;width:58px;height:70px;object-fit:cover;object-position:50% 22%;
+  border-radius:9px;background:#1e1e1e}
+.dds-e .e-slot .w{font-family:dds-q;font-weight:900;text-transform:uppercase;
+  font-size:clamp(15px,1.5vw,19px);line-height:1.05;align-self:end}
+.dds-e .e-slot .lv{font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);align-self:start}
+.dds-e .e-slot.is-adv{border-left:3px solid var(--ice)}
+.dds-e .e-slot.is-pause{grid-column:1/-1;grid-template-columns:98px 1fr;grid-template-rows:auto;
+  background:rgba(169,216,236,.09);border-color:rgba(169,216,236,.24);justify-items:start}
+.dds-e .e-slot.is-pause .t{grid-row:1}
+.dds-e .e-slot.is-pause .w{font-family:dds-o;font-weight:700;font-size:12px;letter-spacing:.16em;
+  color:rgba(255,255,255,.62);align-self:center}
+.dds-e .e-checkin{grid-column:1/-1}
+@media(max-width:820px){
+  .dds-e .e-slots{grid-template-columns:1fr}
+  .dds-e .e-slot{grid-template-columns:82px 48px 1fr}
+  .dds-e .e-slot .th{width:48px;height:58px}
+}
+.dds-e .e-checkin{font-weight:700;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ice);margin-bottom:12px}
+.dds-e .e-slot.is-pause{background:rgba(169,216,236,.09);border-color:rgba(169,216,236,.22)}
+.dds-e .e-slot.is-pause .w{color:rgba(255,255,255,.6);font-weight:500;letter-spacing:.1em;
+  text-transform:uppercase;font-size:12px}
+
+/* Unterrichtszeiten im Coach-Overlay */
+.dds-e .e-lb .txt .lbl{font-weight:700;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ice);margin:18px 0 10px}
+.dds-e .e-lbslots{display:grid;gap:7px;margin-bottom:20px}
+.dds-e .e-lbslots li{display:grid;grid-template-columns:78px 1fr;gap:4px 12px;align-items:baseline;
+  padding:10px 13px;border-radius:10px;background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.1);font-size:13.5px}
+.dds-e .e-lbslots li b{font-family:dds-q;font-weight:900;color:var(--ice);font-size:14px}
+.dds-e .e-lbslots li span{font-weight:700}
+.dds-e .e-lbslots li em{grid-column:2;font-style:normal;font-size:11.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:rgba(255,255,255,.5)}
+
+/* ===================== 05 TICKETS ===================== */
+.dds-e .e-tix{display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));
+  gap:clamp(12px,1.6vw,20px);margin-top:36px}
+.dds-e .e-tk{border-radius:var(--r);padding:clamp(22px,2.8vw,34px);background:#2e2e2e;
+  border:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column}
+.dds-e .e-tk.top{background:var(--ice);color:var(--ink);border-color:var(--ice)}
+.dds-e .e-tk .tag{font-weight:700;font-size:10.5px;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--ice);margin-bottom:12px}
+.dds-e .e-tk.top .tag{color:var(--ink);opacity:.66}
+.dds-e .e-tk h4{font-family:dds-q;font-weight:900;text-transform:uppercase;
+  font-size:clamp(21px,2.5vw,31px);line-height:.9;margin-bottom:14px}
+.dds-e .e-tk .pr{font-family:dds-q;font-weight:900;font-size:clamp(30px,4vw,46px);line-height:.9;margin-bottom:4px}
+.dds-e .e-tk .old{font-weight:500;font-size:13px;color:rgba(255,255,255,.5);text-decoration:line-through;
+  margin-bottom:16px}
+.dds-e .e-tk.top .old{color:rgba(39,39,39,.52)}
+.dds-e .e-tk ul{margin-bottom:22px;font-size:14px;line-height:1.5}
+.dds-e .e-tk li{padding-left:18px;position:relative;margin-bottom:8px;color:rgba(255,255,255,.76)}
+.dds-e .e-tk.top li{color:rgba(39,39,39,.84)}
+.dds-e .e-tk li::before{content:"→";position:absolute;left:0;color:var(--ice)}
+.dds-e .e-tk.top li::before{color:var(--ink)}
+.dds-e .e-tk .e-btn{margin-top:auto;width:100%;font-size:15px;padding:15px 22px}
+.dds-e .e-tk.top .e-btn{background:var(--ink);color:var(--ice)}
+.dds-e .e-cd{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;margin-top:30px;
+  background:rgba(169,216,236,.1);border:1px solid rgba(169,216,236,.3);border-radius:var(--r);
+  padding:16px clamp(16px,2vw,26px);font-weight:700;font-size:13.5px;letter-spacing:.05em;
+  text-transform:uppercase}
+.dds-e .e-cd b{color:var(--ice);font-family:dds-q;font-weight:900;font-size:20px}
+.dds-e .e-cd .rest{color:rgba(255,255,255,.55);font-weight:500;text-transform:none;letter-spacing:0}
+
+/* ===================== 06 SHOP ===================== */
+.dds-e .e-shop{display:grid;grid-template-columns:repeat(auto-fit,minmax(226px,1fr));gap:14px;margin-top:32px}
+.dds-e .e-sc{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--r);padding:clamp(20px,2.4vw,28px)}
+.dds-e .e-sc h4{font-family:dds-q;font-weight:900;text-transform:uppercase;font-size:20px;margin-bottom:10px}
+.dds-e .e-sc .p{font-family:dds-q;font-weight:900;font-size:30px;color:var(--ice);margin-bottom:6px;line-height:.9}
+.dds-e .e-sc small{display:block;font-size:12.5px;color:rgba(255,255,255,.56);margin-bottom:16px}
+.dds-e .e-sc a{font-weight:700;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ice);
+  border-bottom:1px solid rgba(169,216,236,.45);padding-bottom:2px}
+
+/* ===================== 07 ORT ===================== */
+.dds-e .e-map{margin-top:26px;border-radius:var(--r);overflow:hidden;border:1px solid rgba(39,39,39,.2);
+  aspect-ratio:21/9;min-height:220px;background:rgba(39,39,39,.12)}
+.dds-e .e-map iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(1) contrast(1.04)}
+
+/* ===================== 08 FAQ ===================== */
+.dds-e .e-faq{margin-top:30px;border-top:1px solid rgba(39,39,39,.18)}
+.dds-e .e-faq details{border-bottom:1px solid rgba(39,39,39,.18)}
+.dds-e .e-faq summary{cursor:pointer;list-style:none;padding:19px 0;font-family:dds-q;font-weight:900;
+  text-transform:uppercase;font-size:clamp(15px,1.7vw,20px);display:flex;justify-content:space-between;gap:18px}
+.dds-e .e-faq summary::-webkit-details-marker{display:none}
+.dds-e .e-faq summary::after{content:"+";font-family:dds-o;font-weight:700}
+.dds-e .e-faq details[open] summary::after{content:"–"}
+.dds-e .e-faq .a{padding-bottom:19px;font-size:15px;line-height:1.64;color:rgba(39,39,39,.76);max-width:70ch}
+
+/* ===================== 09 LETZTER AUFRUF ===================== */
+.dds-e .e-last{text-align:center}
+.dds-e .e-last .e-h{font-size:clamp(34px,7vw,92px)}
+.dds-e .e-last .e-lead{margin-left:auto;margin-right:auto}
+.dds-e .e-last .e-btn{font-size:clamp(16px,2vw,22px);padding:19px 40px;margin-top:24px}
+
+/* ===================== STICKY (mobil) ===================== */
+.dds-e .e-sticky{position:sticky;bottom:0;z-index:60;display:none;align-items:center;
+  justify-content:space-between;gap:12px;background:rgba(39,39,39,.96);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border-top:1px solid rgba(169,216,236,.3);padding:11px 16px;
+  padding-bottom:calc(11px + env(safe-area-inset-bottom))}
+.dds-e .e-sticky .l{font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);line-height:1.35}
+.dds-e .e-sticky .l b{color:var(--ice);display:block;font-family:dds-q;font-weight:900;font-size:16px}
+.dds-e .e-sticky a{background:var(--ice);color:var(--ink);font-family:dds-q;font-weight:900;
+  text-transform:uppercase;font-size:13.5px;padding:12px 20px;border-radius:999px;white-space:nowrap}
+@media(max-width:860px){.dds-e .e-sticky{display:flex}}
+
+/* ===================== BEWEGUNG AUS ===================== */
+@media(prefers-reduced-motion:reduce){
+  .dds-e *,.dds-e *::before,.dds-e *::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+  .dds-e .e-hero canvas{display:none}
+  .dds-e .e-hero .e-poster{opacity:1!important}
+}
+/* Scroll-Reveal — SICHTBAR ist der Standard.
+   Versteckt wird erst, wenn das Skript nachweislich läuft (.rv-armed).
+   Fällt JavaScript aus, bleibt die Seite trotzdem vollständig lesbar. */
+.dds-e .rv{transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.dds-e.rv-armed .rv{opacity:0;transform:translateY(26px)}
+.dds-e.rv-armed .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.dds-e.rv-armed .rv{opacity:1;transform:none}}
+</style>
+
+
+<!-- ========================= 01 HERO ========================= -->
+<header class="e-hero" id="e-hero">
+  <div class="e-mos" id="e-mos0" aria-hidden="true"></div>
+  <div class="e-glow"></div>
+  <img class="e-poster" alt="" src="prototyp/media/hero-poster.jpg" fetchpriority="high">
+  <canvas id="e-stage" aria-hidden="true"></canvas>
+  <div class="e-veil"></div>
+
+  <div class="e-top"><span>Detlef D! Soost</span><span>Proudly presents</span></div>
+  <p class="e-hint" id="e-hint">Ziehen zum Drehen</p>
+
+  <div class="e-hbot">
+    <div class="l">
+      <p class="e-sub">Special Coaching</p>
+      <h1 class="e-mark">D<span>!</span>Grees</h1>
+      <p class="e-facts">
+        <span><b>3</b> Tage</span><span><b>18</b> Coaches</span>
+        <span><b>28</b> Workshops</span><span>Beginner–Advanced</span>
+      </p>
+      <p class="e-venue">16.–18. Oktober 2026 · D!'s Dance World · Holzmarktstraße 66 · 10179 Berlin</p>
+    </div>
+    <div class="r">
+      <a class="e-btn" data-tix="full" href="#e-tickets">Ticket sichern →</a>
+      <span class="e-eb">Early Bird nur bis 31.08.</span>
+    </div>
+  </div>
+</header>
+
+
+<!-- ========================= 02 DER SATZ ========================= -->
+<section class="e-sec">
+  <div class="e-rep" aria-hidden="true" id="e-rep"></div>
+  <div class="e-wrap rv">
+    <p class="e-kick">16.–18. Oktober 2026 · Berlin</p>
+    <h2 class="e-h">Drei Tage.<br>Achtzehn Coaches.<br><em>Ein Level höher.</em></h2>
+    <p class="e-lead">Erlebe 3 Tage intensives Training, das dich körperlich, mental und
+      künstlerisch auf das nächste Tanz-Level bringt. So ein Line-up hatten wir noch nie —
+      wir holen sie alle nach Berlin.</p>
+  </div>
+
+  <!-- vollflächiger Recap der letzten Ausgabe -->
+  <figure class="e-film" id="e-film">
+    <video id="e-filmv" muted loop playsinline preload="none"></video>
+    <span class="e-filmcover" id="e-filmcover" aria-hidden="true"></span>
+    <span class="e-filmtiles" id="e-filmtiles" aria-hidden="true"></span>
+    <figcaption class="e-filmcap">So war die letzte Ausgabe</figcaption>
+    <button class="e-sound" id="e-sound" type="button" aria-pressed="false">
+      <span class="ic">♪</span><span class="tx">Ton an</span>
+    </button>
+  </figure>
+
+  <div class="e-wrap rv">
+    <div class="e-nums" id="e-nums">
+      <div class="e-num"><b data-to="3">0</b><span>Tage</span></div>
+      <div class="e-num"><b data-to="18">0</b><span>Coaches</span></div>
+      <div class="e-num"><b data-to="28">0</b><span>Workshops</span></div>
+      <div class="e-num"><b data-nocount>∞</b><span>Beginner–Advanced</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================= 03 LINE-UP ========================= -->
+<section class="e-sec" id="e-lineup">
+  <div class="e-wrap rv">
+    <p class="e-kick">Das Line-up</p>
+    <h2 class="e-h">Wer dich <em>unterrichtet</em></h2>
+    <p class="e-lead">Aus Spanien, Brasilien, Frankreich, UK und Berlin.
+      <span data-hoveronly>Fahr mit der Maus über eine Kachel, um den Coach in Bewegung zu sehen.</span>
+      <span data-taponly hidden>Tippe eine Kachel an, um den Coach in Bewegung zu sehen.</span></p>
+    <div class="e-grid" id="e-grid"></div>
+  </div>
+</section>
+
+
+<!-- ========================= 04 TIMETABLE ========================= -->
+<section class="e-sec">
+  <div class="e-wrap rv">
+    <p class="e-kick">Timetable</p>
+    <h2 class="e-h">Dein <em>Plan</em></h2>
+    <p class="e-lead">Mit dem Tagespass wählst du einen Tag. Mit dem Full Pass alle drei.</p>
+    <div class="e-days" role="tablist" id="e-days"></div>
+    <div class="e-slots" id="e-slots"></div>
+  </div>
+</section>
+
+
+<!-- ========================= 05 TICKETS ========================= -->
+<section class="e-sec" id="e-tickets">
+  <div class="e-mos" id="e-mos1" aria-hidden="true"></div>
+  <div class="e-wrap rv">
+    <p class="e-kick">Tickets</p>
+    <h2 class="e-h">Wähl deinen <em>Weg rein</em></h2>
+    <div class="e-tix" id="e-tix"></div>
+    <p class="e-cd">
+      <span>Early Bird endet in</span> <b id="e-cd">–</b>
+      <span class="rest">danach Full Pass 319 € · Tagespass 129 €</span>
+    </p>
+  </div>
+</section>
+
+
+<!-- ========================= 06 SHOP ========================= -->
+<section class="e-sec">
+  <div class="e-wrap rv">
+    <p class="e-kick">Nach dem Event</p>
+    <h2 class="e-h">Bleib <em>drin</em></h2>
+    <p class="e-lead">Drei Tage sind ein Anfang. Wer weitermachen will, kommt direkt in die School.</p>
+    <div class="e-shop" id="e-shop"></div>
+  </div>
+</section>
+
+
+<!-- ========================= 07 ORT ========================= -->
+<section class="e-sec e-ice">
+  <div class="e-wrap rv">
+    <p class="e-kick">Ort &amp; Anreise</p>
+    <h2 class="e-h">D!'s Dance World</h2>
+    <p class="e-lead" style="font-weight:700">Holzmarktstraße 66 · 10179 Berlin<br>
+      Check-in: Freitag 10–11 Uhr · Samstag und Sonntag 9–10 Uhr</p>
+    <div class="e-map">
+      <iframe loading="lazy" title="Karte — Holzmarktstraße 66, 10179 Berlin" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=13.4185%2C52.5090%2C13.4325%2C52.5155&amp;layer=mapnik&amp;marker=52.5122%2C13.4255"></iframe>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================= 08 FRAGEN ========================= -->
+<section class="e-sec e-lite">
+  <div class="e-wrap rv">
+    <p class="e-kick">Fragen</p>
+    <h2 class="e-h">Kurz <em>geklärt</em></h2>
+    <div class="e-faq">
+      <details open><summary>Für welches Level ist das?</summary>
+        <div class="a">Für alle. Die Workshops sind nach Beginner, Intermediate und Advanced
+        ausgewiesen — du suchst dir aus, was zu dir passt.</div></details>
+      <details><summary>Kann ich einzelne Workshops buchen?</summary>
+        <div class="a">Einzelne Workshops geben wir später frei, je nach Verfügbarkeit.
+        Wer sicher rein will, nimmt den Pass.</div></details>
+      <details><summary>Kann ich stornieren?</summary>
+        <div class="a">Bis zwei Wochen vor dem Event. Danach ist das Ticket übertragbar —
+        du kannst es an jemand anderen weitergeben.</div></details>
+      <details><summary>Was muss ich mitbringen?</summary>
+        <div class="a">Tanzkleidung, Wechselshirt, saubere Schuhe für drinnen und eine
+        Wasserflasche. Umkleiden sind vor Ort.</div></details>
+      <details><summary>Brauche ich eine Mitgliedschaft?</summary>
+        <div class="a">Nein. Das Ticket gilt unabhängig von einer Mitgliedschaft in der School.</div></details>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================= 09 LETZTER AUFRUF ========================= -->
+<section class="e-sec e-last">
+  <div class="e-mos" id="e-mos2" aria-hidden="true"></div>
+  <div class="e-wrap rv">
+    <h2 class="e-h">360 <em>is back!</em></h2>
+    <p class="e-lead">16.–18. Oktober · D!'s Dance World Berlin</p>
+    <a class="e-btn" data-tix="full" href="#">Ticket sichern →</a>
+    <p class="e-eb" style="text-align:center">Early Bird nur bis 31.08.</p>
+  </div>
+</section>
+
+<div class="e-sticky">
+  <span class="l">Full Pass ab<b>249 €</b></span>
+  <a data-tix="full" href="#">Ticket sichern</a>
+</div>
+
+<!-- Coach-Lightbox -->
+<div class="e-lb" id="e-lb" role="dialog" aria-modal="true" aria-label="Coach">
+  <div class="box">
+    <button class="x" id="e-lbx" aria-label="Schließen">✕</button>
+    <div class="vis" id="e-lbvis"></div>
+    <div class="txt" id="e-lbtxt"></div>
+  </div>
+</div>
+
+</div><!-- /.dds-e -->
+
+<script>
+(() => {
+"use strict";
+const root = document.querySelector('[data-dds-360]');
+if (!root || root.dataset.init) return;
+root.dataset.init = "1";
+const $  = (s, c=root) => c.querySelector(s);
+const $$ = (s, c=root) => [...c.querySelectorAll(s)];
+
+/* ══════════════════════════════════════════════════════════════════════
+   DATEN — hier wird gepflegt, sonst nirgends
+   ══════════════════════════════════════════════════════════════════════ */
+
+// Ordner mit Coach-Bildern und -Videos (WordPress-Mediathek oder eigener Host)
+const MEDIA = "prototyp/media/";
+
+// Three.js — Datei in die Mediathek laden. Fehlt sie, bleibt das Standbild stehen.
+const THREE_URL = "https://unpkg.com/three@0.169.0/build/three.module.js";
+
+// Eversports-Direktlinks
+const EVENT = "https://www.eversports.de/e/event/eW_ONsh";
+const TICKETS = [
+  { key:"full", tag:"Alle drei Tage", name:"Full Pass", price:"249 €", old:"regulär 319 €", top:true,
+    li:["Alle 3 Tage","Alle 28 Workshops zur Auswahl","Alle 18 Coaches"], cta:"Full Pass sichern", url:EVENT },
+  { key:"fr", tag:"Freitag 16.10.", name:"Tagespass", price:"99 €", old:"regulär 129 €",
+    li:["10:00–20:00 Uhr","Workshops des Tages"], cta:"Freitag buchen", url:EVENT },
+  { key:"sa", tag:"Samstag 17.10.", name:"Tagespass", price:"99 €", old:"regulär 129 €",
+    li:["10:00–18:30 Uhr","Workshops des Tages"], cta:"Samstag buchen", url:EVENT },
+  { key:"so", tag:"Sonntag 18.10.", name:"Tagespass", price:"99 €", old:"regulär 129 €",
+    li:["10:00–17:00 Uhr","Workshops des Tages"], cta:"Sonntag buchen", url:EVENT }
+];
+
+/* TIMETABLE — 1:1 aus den offiziellen Timetable-Grafiken (Dropbox 360-Timetable-4x5).
+   Das ist die Quelle der Wahrheit: 28 Workshops, 18 Coaches.
+   Format je Zeile: [Zeit, Coach, Level]  ·  Coach "" = Pause */
+const PLAN = {
+  fr: { label:"Fr 16.10.", checkin:"Check-in 10–11 Uhr", slots:[
+    ["11:00–12:30","Kane Walcott","Intermediate / Advanced"],
+    ["11:00–12:30","Daniel Wijngaarden","Beginner"],
+    ["12:30–14:00","Daniel Wijngaarden","Intermediate / Advanced"],
+    ["12:30–14:00","Kane Walcott","Beginner"],
+    ["14:00–14:45","","Pause"],
+    ["14:45–16:15","Ekaterina Leonova","All Level"],
+    ["16:15–17:45","Jaron Johnson","Intermediate / Advanced"],
+    ["16:15–17:45","Raik Preetz","Beginner"],
+    ["17:45–19:30","India Rischko","All Level"]]},
+  sa: { label:"Sa 17.10.", checkin:"Check-in 9–10 Uhr", slots:[
+    ["10:00–11:30","Elizabeth","Intermediate / Advanced"],
+    ["10:00–11:30","Jaron Johnson","Beginner"],
+    ["11:30–13:00","Pepo","Intermediate / Advanced"],
+    ["11:30–13:00","Elizabeth","Beginner"],
+    ["11:30–12:30","Emma Kant","Beginner"],
+    ["13:00–13:45","","Pause"],
+    ["13:45–15:15","Jean Mendes","Intermediate / Advanced"],
+    ["13:45–15:15","Amie Mills","Beginner"],
+    ["13:45–14:45","Sarah Abilov","Beginner"],
+    ["15:15–16:45","Amie Mills","Intermediate / Advanced"],
+    ["15:15–16:45","Jean Mendes","Beginner"],
+    ["15:15–16:15","Lili","Beginner"],
+    ["16:45–18:15","Kike Granero","Intermediate / Advanced"],
+    ["16:45–18:15","Pepo","Beginner"]]},
+  so: { label:"So 18.10.", checkin:"Check-in 9–10 Uhr", slots:[
+    ["10:00–11:30","Léany","Intermediate / Advanced"],
+    ["10:00–11:30","Drew Shuttleworth","Beginner"],
+    ["11:30–13:00","Nikeata Thompson","All Level"],
+    ["13:00–13:45","","Pause"],
+    ["13:45–15:15","Drew Shuttleworth","Intermediate / Advanced"],
+    ["13:45–15:15","Léany","Beginner"],
+    ["15:15–16:45","Nils Feiler","Intermediate / Advanced"],
+    ["15:15–16:45","Kike Granero","Beginner"]]}
+};
+
+/* COACHES — 18, Reihenfolge wie auf dem A1-Plakat (oben links → unten rechts).
+   Die Unterrichtszeiten werden automatisch aus PLAN abgeleitet, nichts doppelt pflegen.
+   ⚠️ land + stil sind noch NICHT bestätigt — leer lassen heißt: wird nicht angezeigt.
+   img/vid: Dateiname im MEDIA-Ordner. vid leer = nur Standbild, Kachel bleibt ruhig. */
+const COACHES = [
+  { name:"Kane Walcott",       land:"", stil:"", img:"kane-walcott.jpg",       vid:"kane-walcott.mp4",       bio:"" },
+  { name:"Jaron Johnson",      land:"", stil:"", img:"jaron-johnson.jpg",      vid:"",                       bio:"" },
+  { name:"Elizabeth",          land:"", stil:"", img:"elizabeth.jpg",          vid:"elizabeth.mp4",          bio:"" },
+  { name:"Daniel Wijngaarden", land:"", stil:"", img:"daniel-wijngaarden.jpg", vid:"daniel-wijngaarden.mp4", bio:"" },
+  { name:"Raik Preetz",        land:"", stil:"", img:"raik-preetz.jpg",        vid:"",                       bio:"" },
+  { name:"Jean Mendes",        land:"", stil:"", img:"jean-mendes.jpg",        vid:"jean-mendes.mp4",        bio:"" },
+  { name:"Nils Feiler",        land:"", stil:"", img:"nils-feiler.jpg",        vid:"",                       bio:"" },
+  { name:"Léany",              land:"", stil:"", img:"leany.jpg",              vid:"leany.mp4",              bio:"" },
+  { name:"Drew Shuttleworth",  land:"", stil:"", img:"drew-shuttleworth.jpg",  vid:"drew-shuttleworth.mp4",  bio:"" },
+  { name:"India Rischko",      land:"", stil:"", img:"india-rischko.jpg",      vid:"",                       bio:"" },
+  { name:"Emma Kant",          land:"", stil:"", img:"emma-kant.jpg",          vid:"",                       bio:"" },
+  { name:"Sarah Abilov",       land:"", stil:"", img:"sarah-abilov.jpg",       vid:"",                       bio:"" },
+  { name:"Lili",               land:"", stil:"", img:"lili.jpg",               vid:"",                       bio:"" },
+  { name:"Kike Granero",       land:"", stil:"", img:"kike-granero.jpg",       vid:"kike-granero.mp4",       bio:"" },
+  { name:"Pepo",               land:"", stil:"", img:"pepo.jpg",               vid:"pepo.mp4",               bio:"" },
+  { name:"Ekaterina Leonova",  land:"", stil:"", img:"ekaterina-leonova.jpg",  vid:"",                       bio:"" },
+  { name:"Amie Mills",         land:"", stil:"", img:"amie-mills.jpg",         vid:"",                       bio:"" },
+  { name:"Nikeata Thompson",   land:"", stil:"", img:"nikeata-thompson.jpg",   vid:"",                       bio:"" }
+];
+
+/* PLAKAT-ANORDNUNG — Positionen 1:1 aus 360-Plakat-A1.pdf abgeleitet.
+   x,y = Mittelpunkt in Prozent des Collagen-Feldes, w = Breite in Prozent.
+   Vorn/unten stehende Coaches sind größer und liegen oben — wie auf dem Plakat. */
+const POSTER = {
+  "Drew Shuttleworth": [24.4, 12.5, 13],
+  "Kane Walcott":      [43.9,  6.9, 14],
+  "Sarah Abilov":      [63.9, 10.0, 13],
+  "Raik Preetz":       [82.0, 16.9, 13],
+  "Nils Feiler":       [15.6, 22.5, 13],
+  "Daniel Wijngaarden":[42.8, 31.3, 15],
+  "Kike Granero":      [73.3, 28.8, 14],
+  "Jaron Johnson":     [13.9, 46.3, 15],
+  "Elizabeth":         [ 8.5, 55.0, 14],
+  "Emma Kant":         [27.2, 55.0, 15],
+  "Jean Mendes":       [57.2, 51.3, 15],
+  "Léany":             [81.1, 48.8, 14],
+  "Pepo":              [91.5, 50.0, 13],
+  "Lili":              [45.0, 63.8, 15],
+  "Amie Mills":        [26.1, 88.8, 17],
+  "Nikeata Thompson":  [46.7, 87.5, 18],
+  "Ekaterina Leonova": [65.0, 86.3, 17],
+  "India Rischko":     [83.3, 81.3, 16]
+};
+
+/* Unterrichtszeiten je Coach aus PLAN ziehen — eine Quelle, keine Dopplung */
+const SLOTS_VON = name => Object.entries(PLAN).flatMap(([k, d]) =>
+  d.slots.filter(s => s[1] === name).map(s => ({ tag:d.label, zeit:s[0], level:s[2] })));
+
+const SHOP = [
+  { h:"Welcome Pass", p:"29 €",  s:"2 Einheiten · 10 Tage gültig", a:"Ausprobieren", url:"https://www.eversports.de/sp/ds-dance-school" },
+  { h:"Basic",        p:"59 €",  s:"pro Monat · 6 Check-ins",      a:"Basic starten", url:"https://www.eversports.de/sp/ds-dance-school" },
+  { h:"Unlimited",    p:"74 €",  s:"pro Monat · unbegrenzt",       a:"Unlimited starten", url:"https://www.eversports.de/sp/ds-dance-school" },
+  { h:"10er-Karte",   p:"149 €", s:"10 Einheiten · 6 Monate",      a:"Karte holen", url:"https://www.eversports.de/sp/ds-dance-school" }
+];
+
+const EARLY_BIRD_END = "2026-09-01T00:00:00+02:00";
+const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+
+/* ══════════════ Ticketlinks überall setzen ══════════════ */
+$$("[data-tix]").forEach(a => {
+  const t = TICKETS.find(x => x.key === a.dataset.tix) || TICKETS[0];
+  if (a.getAttribute("href") === "#") {
+    a.href = t.url; a.target = "_blank"; a.rel = "noopener";
+  }
+});
+
+/* ══════════════ Mosaik + Wiederholungstypo ══════════════ */
+["e-mos0","e-mos1","e-mos2"].forEach(id => {
+  const el = $("#" + id); if (!el) return;
+  const cls = ["","","b","d","","c","","d","b",""];
+  el.innerHTML = Array.from({length:96}, (_,i) => `<i class="${cls[(i*7+i%5)%cls.length]}"></i>`).join("");
+});
+{ const r = $("#e-rep");
+  if (r) r.innerHTML = Array.from({length:8}, () => "360 IS BACK! ".repeat(6)).join("<br>"); }
+
+/* ══════════════ Tickets ══════════════ */
+$("#e-tix").innerHTML = TICKETS.map(t => `
+  <article class="e-tk${t.top ? " top" : ""}">
+    <p class="tag">${esc(t.tag)}</p>
+    <h4>${esc(t.name)}</h4>
+    <p class="pr">${esc(t.price)}</p>
+    <p class="old">${esc(t.old)}</p>
+    <ul>${t.li.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+    <a class="e-btn" href="${esc(t.url)}" target="_blank" rel="noopener">${esc(t.cta)}</a>
+  </article>`).join("");
+
+/* ══════════════ Shop ══════════════ */
+$("#e-shop").innerHTML = SHOP.map(s => `
+  <article class="e-sc">
+    <h4>${esc(s.h)}</h4><p class="p">${esc(s.p)}</p><small>${esc(s.s)}</small>
+    <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.a)} →</a>
+  </article>`).join("");
+
+/* ══════════════ Countdown ══════════════ */
+{ const el = $("#e-cd");
+  const tick = () => {
+    const d = Math.ceil((new Date(EARLY_BIRD_END) - Date.now()) / 864e5);
+    el.textContent = d > 1 ? d + " Tagen" : d === 1 ? "1 Tag" : "— beendet";
+  };
+  tick(); setInterval(tick, 36e5);
+}
+
+/* ══════════════ Timetable ══════════════ */
+{
+  const days = $("#e-days"), slots = $("#e-slots");
+  const keys = Object.keys(PLAN);
+  days.innerHTML = keys.map((k,i) =>
+    `<button class="e-day" role="tab" data-k="${k}" aria-selected="${i===0}">${esc(PLAN[k].label)}</button>`).join("");
+  const BILD = Object.fromEntries(COACHES.map(c => [c.name, c.img]));
+  const draw = k => {
+    const d = PLAN[k];
+    slots.innerHTML =
+      `<p class="e-checkin">${esc(d.checkin || "")}</p>` +
+      d.slots.map(([t,w,l]) => {
+        if (!w) return `<div class="e-slot is-pause"><span class="t">${esc(t)}</span>
+          <span class="w">${esc(l)}</span></div>`;
+        const img = BILD[w];
+        const adv = /Advanced/i.test(l);
+        return `<div class="e-slot${adv ? " is-adv" : ""}">
+          <span class="t">${esc(t)}</span>
+          ${img ? `<img class="th" src="${MEDIA}${esc(img)}" alt="" loading="lazy" decoding="async">` : ""}
+          <span class="w">${esc(w)}</span>
+          <span class="lv">${esc(l)}</span></div>`;
+      }).join("");
+  };
+  draw(keys[0]);
+  days.addEventListener("click", e => {
+    const b = e.target.closest(".e-day"); if (!b) return;
+    $$(".e-day", days).forEach(x => x.setAttribute("aria-selected", String(x === b)));
+    draw(b.dataset.k);
+  });
+}
+
+/* ══════════════ Recap-Film ══════════════ */
+(() => {
+  const film = $("#e-film"), v = $("#e-filmv"), tiles = $("#e-filmtiles"), snd = $("#e-sound");
+  if (!film || !v) return;
+  // Quelle UND Standbild aus MEDIA — sonst zeigt eines von beiden ins Leere
+  v.poster = MEDIA + "recap-360.jpg";
+  v.src    = MEDIA + "recap-360.mp4";
+
+  /* Signature-Kacheln am Rand — oben und unten je eine Reihe, die ins Bild ragt,
+     dazu ein paar an den Seiten. Deterministisch, damit es bei jedem Laden gleich sitzt. */
+  const T = [];
+  const push = (l,t,w,h,c) => T.push(`<i style="left:${l};top:${t};width:${w};height:${h};background:${c}"></i>`);
+  const INK = "#272727", ICE = "rgba(169,216,236,.9)", ICE2 = "rgba(169,216,236,.42)";
+  const topW  = [9,6,11,7,5,10,6,8,12,7];        // Breiten in %
+  const topH  = [46,72,38,60,86,44,66,52,34,74]; // Höhen in px (ragen unterschiedlich weit rein)
+  let x = -2;
+  topW.forEach((w,i) => {
+    const c = i % 4 === 1 ? ICE2 : i % 5 === 3 ? ICE : INK;
+    push(`${x}%`, `${-Math.round(topH[i]*0.42)}px`, `${w}%`, `${topH[i]}px`, c);
+    x += w + 1.6;
+  });
+  const botW = [7,10,6,12,8,5,11,7,9,6];
+  const botH = [58,40,78,44,64,88,36,70,48,60];
+  x = -3;
+  botW.forEach((w,i) => {
+    const c = i % 4 === 2 ? ICE2 : i % 6 === 4 ? ICE : INK;
+    push(`${x}%`, `calc(100% - ${Math.round(botH[i]*0.58)}px)`, `${w}%`, `${botH[i]}px`, c);
+    x += w + 1.8;
+  });
+  [[-1.5,18,4,110,INK],[-2,52,3.4,86,ICE2],[97,30,4,96,INK],[96.5,64,3.6,120,ICE2]]
+    .forEach(([l,t,w,h,c]) => push(`${l}%`, `${t}%`, `${w}%`, `${h}px`, c));
+  tiles.innerHTML = T.join("");
+
+  /* ---- Deckendes Mosaik, das sich beim Start aufblättert ----
+     Raster über die ganze Fläche, jede Kachel mit eigener Verzögerung.
+     Die Reihenfolge läuft diagonal von links oben nach rechts unten,
+     mit etwas Streuung — dadurch wirkt es wie ein Puzzle, das zerfällt. */
+  const cover = $("#e-filmcover");
+  const COLS = 9, ROWS = 5, GAP = .45;                 // Lücke in Prozent
+  {
+    const cw = 100/COLS, ch = 100/ROWS, out = [];
+    const maxSchritt = (COLS - 1) + (ROWS - 1);
+    for (let r = 0; r < ROWS; r++)
+      for (let cIdx = 0; cIdx < COLS; cIdx++){
+        const n = r*COLS + cIdx;
+        const streu = ((n * 37) % 11) / 11;             // deterministische Streuung
+        const schritt = cIdx + r;                        // diagonale Welle
+        const auf  = (schritt * 105 + streu * 300) | 0;                 // Auflösen
+        const zu   = ((maxSchritt - schritt) * 105 + streu * 300) | 0;  // Zusammensetzen
+        const art = (n % 7 === 3) ? " ice" : (n % 5 === 1) ? " dark" : "";
+        out.push(`<i class="${art.trim()}" style="left:${(cIdx*cw - GAP).toFixed(2)}%;`
+          + `top:${(r*ch - GAP).toFixed(2)}%;width:${(cw + GAP*2).toFixed(2)}%;`
+          + `height:${(ch + GAP*2).toFixed(2)}%;--d:${auf}ms;--dr:${zu}ms"></i>`);
+      }
+    cover.innerHTML = out.join("");
+  }
+  const aufloesen  = () => cover.classList.add("auf");
+  const zusammen   = () => cover.classList.remove("auf");
+
+  /* Erst laden und abspielen, wenn der Film wirklich zu sehen ist.
+     Beim Wegscrollen setzt sich das Puzzle wieder zusammen — deshalb wird
+     das Deckmosaik nie entfernt, nur umgeschaltet. */
+  if (window.IntersectionObserver){
+    new IntersectionObserver(es => es.forEach(en => {
+      if (en.isIntersecting){
+        v.preload = "auto";
+        const p = v.play(); if (p && p.catch) p.catch(()=>{});
+        // Reißleine: Blockiert der Browser den Autostart, bliebe das Video
+        // sonst zugedeckt. Nach 1,8 s wird so oder so aufgeblättert.
+        setTimeout(aufloesen, 1800);
+      } else { if (!v.paused) v.pause(); zusammen(); }
+    }), { threshold: .25 }).observe(film);
+  } else { v.preload = "auto"; setTimeout(aufloesen, 1200); }
+
+  v.addEventListener("playing", () => setTimeout(aufloesen, 420));
+
+  snd && snd.addEventListener("click", () => {
+    v.muted = !v.muted;
+    snd.setAttribute("aria-pressed", String(!v.muted));
+    snd.querySelector(".tx").textContent = v.muted ? "Ton an" : "Ton aus";
+    if (!v.muted && v.paused) v.play().catch(()=>{});
+  });
+})();
+
+/* ══════════════ Coach-Raster ══════════════ */
+const coarse = matchMedia("(hover:none), (pointer:coarse)").matches;
+$$("[data-hoveronly]").forEach(e => e.hidden = coarse);
+$$("[data-taponly]").forEach(e => e.hidden = !coarse);
+
+/* Ab 900px versetzte Line-up-Reihe, darunter normales Raster. */
+const gridEl = $("#e-grid");
+if (matchMedia("(min-width: 900px)").matches) gridEl.classList.add("is-lineup");
+
+$("#e-grid").innerHTML = COACHES.map((c,i) => {
+  const st = "";
+  return `
+  <figure class="e-coach" data-i="${i}"${c.vid ? "" : " data-novideo"} tabindex="0" role="button"
+          aria-label="${esc(c.name)}"${st}>
+    <img src="${MEDIA}${esc(c.img)}" alt="${esc(c.name)}" loading="lazy" decoding="async" width="432" height="540">
+    <span class="e-sweep"></span><span class="e-load"></span>
+    <span class="e-tap">▶ Video</span><span class="e-play">▶</span><span class="e-ring"></span>
+    <figcaption class="e-meta">
+      ${c.land ? `<p class="e-flag">${esc(c.land)}</p>` : ""}
+      <p class="e-nm">${esc(c.name)}</p>
+      <p class="e-st">${esc(c.stil || SLOTS_VON(c.name).map(s=>s.tag).join(" · "))}</p>
+    </figcaption>
+  </figure>`;
+}).join("");
+
+/* Video: erst laden, wenn gebraucht — und immer nur eines gleichzeitig */
+let active = null;
+function stopAll(except){
+  $$(".e-coach.playing").forEach(f => {
+    if (f === except) return;
+    f.classList.remove("playing");
+    const v = f.querySelector("video"); if (v){ v.pause(); }
+  });
+  if (except !== active) active = except || null;
+}
+function play(fig){
+  const c = COACHES[+fig.dataset.i]; if (!c || !c.vid || REDUCE) return;
+  let v = fig.querySelector("video");
+  if (!v){
+    v = document.createElement("video");
+    v.muted = true; v.loop = true; v.playsInline = true; v.preload = "none";
+    v.setAttribute("muted",""); v.setAttribute("playsinline",""); v.setAttribute("aria-hidden","true");
+    v.src = MEDIA + c.vid;
+    // Ladezustand zeigen — sonst passiert bei langsamer Leitung sichtbar nichts
+    v.addEventListener("waiting", () => fig.classList.add("loading"));
+    v.addEventListener("playing", () => fig.classList.remove("loading"));
+    v.addEventListener("error",   () => { fig.classList.remove("loading","playing");
+                                          fig.setAttribute("data-novideo",""); });
+    fig.insertBefore(v, fig.querySelector(".e-sweep"));
+  }
+  stopAll(fig);
+  fig.classList.add("loading");
+  // Erst umschalten, wenn wirklich ein Bild da ist — sonst wird die Kachel schwarz.
+  clearTimeout(fig._t);
+  const reveal = () => {
+    clearTimeout(fig._t);
+    fig.classList.remove("loading");
+    // Wisch neu auslösen, auch wenn die Klasse schon mal dran war
+    fig.classList.remove("playing"); void fig.offsetWidth; fig.classList.add("playing");
+  };
+  if (v.readyState >= 2) reveal();
+  else {
+    v.addEventListener("loadeddata", reveal, { once:true });
+    // Reißleine: lädt nach 6 s nichts, zurück aufs Standbild statt ewig zu drehen
+    fig._t = setTimeout(() => {
+      if (v.readyState < 2){ fig.classList.remove("loading","playing"); v.pause(); }
+    }, 6000);
+  }
+  const p = v.play();
+  if (p && p.catch) p.catch(() => { clearTimeout(fig._t); fig.classList.remove("playing","loading"); });
+}
+function stop(fig){
+  clearTimeout(fig._t);
+  fig.classList.remove("playing","loading");
+  const v = fig.querySelector("video"); if (v) v.pause();
+}
+
+const grid = $("#e-grid");
+if (!coarse){
+  grid.addEventListener("pointerenter", e => {
+    const f = e.target.closest(".e-coach"); if (f && !f.hasAttribute("data-novideo")) play(f);
+  }, true);
+  grid.addEventListener("pointerleave", e => {
+    const f = e.target.closest(".e-coach"); if (f) stop(f);
+  }, true);
+}
+grid.addEventListener("click", e => {
+  const f = e.target.closest(".e-coach"); if (!f) return;
+  if (coarse && !f.hasAttribute("data-novideo")){
+    f.classList.contains("playing") ? stop(f) : play(f);
+    return;
+  }
+  openLb(+f.dataset.i);
+});
+grid.addEventListener("keydown", e => {
+  if (e.key !== "Enter" && e.key !== " ") return;
+  const f = e.target.closest(".e-coach"); if (!f) return;
+  e.preventDefault(); openLb(+f.dataset.i);
+});
+
+/* Lightbox */
+const lb = $("#e-lb");
+function openLb(i){
+  const c = COACHES[i]; if (!c) return;
+
+  // Video wenn vorhanden, sonst das Standbild
+  $("#e-lbvis").innerHTML = c.vid
+    ? `<video src="${MEDIA}${esc(c.vid)}" poster="${MEDIA}${esc(c.img)}"
+         autoplay muted loop playsinline preload="metadata"></video>`
+    : `<img src="${MEDIA}${esc(c.img)}" alt="${esc(c.name)}">`;
+
+  const slots = SLOTS_VON(c.name);
+  $("#e-lbtxt").innerHTML = `
+    ${c.land ? `<p class="e-flag">${esc(c.land)}</p>` : ""}
+    <h3>${esc(c.name)}</h3>
+    ${c.stil ? `<p class="st">${esc(c.stil)}</p>` : ""}
+    ${c.bio ? `<p>${esc(c.bio)}</p>` : ""}
+    <p class="lbl">Unterrichtet beim 360</p>
+    <ul class="e-lbslots">${
+      slots.length
+        ? slots.map(s => `<li><b>${esc(s.tag)}</b><span>${esc(s.zeit)}</span><em>${esc(s.level)}</em></li>`).join("")
+        : `<li><span>Zeiten folgen</span></li>`
+    }</ul>
+    <a class="e-btn" href="${esc(EVENT)}" target="_blank" rel="noopener" style="margin-top:6px">Ticket sichern →</a>`;
+  lb.classList.add("on"); document.body.style.overflow = "hidden";
+}
+function closeLb(){ lb.classList.remove("on"); document.body.style.overflow = ""; $("#e-lbvis").innerHTML = ""; }
+$("#e-lbx").addEventListener("click", closeLb);
+lb.addEventListener("click", e => { if (e.target === lb) closeLb(); });
+addEventListener("keydown", e => { if (e.key === "Escape" && lb.classList.contains("on")) closeLb(); });
+
+/* ══════════════ Reveals + zählende Zahlen ══════════════ */
+const setNums = () => $$("b[data-to]").forEach(b => b.textContent = b.dataset.to);
+
+if ("IntersectionObserver" in window && !REDUCE){
+  let ioFired = false;
+  root.classList.add("rv-armed");
+
+  const io = new IntersectionObserver(es => {
+    ioFired = true;
+    es.forEach(en => {
+      if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+    });
+  }, { rootMargin: "0px 0px -12% 0px" });
+  $$(".rv").forEach(el => io.observe(el));
+
+  const nio = new IntersectionObserver(es => es.forEach(en => {
+    if (!en.isIntersecting) return;
+    nio.unobserve(en.target);
+    $$("b[data-to]", en.target).forEach(b => {
+      const to = +b.dataset.to, t0 = performance.now(), dur = 900;
+      const step = t => {
+        const p = Math.min(1, (t - t0) / dur);
+        b.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  }), { threshold: .4 });
+  const n = $("#e-nums"); if (n) nio.observe(n);
+
+  /* Reißleine: Ein IntersectionObserver meldet sich beim Beobachten sofort einmal.
+     Bleibt das aus (blockiert, gedrosselt, fremdes Skript dazwischen), wird die
+     Verdeckung komplett aufgehoben — lieber ohne Effekt als unsichtbar. */
+  setTimeout(() => {
+    if (!ioFired){ root.classList.remove("rv-armed"); setNums(); }
+  }, 2000);
+} else {
+  setNums();   // ohne Observer oder bei „Bewegung reduzieren": alles sofort da
+}
+
+/* ══════════════ 3D-Hero — reine Zugabe, Standbild bleibt Rückfallebene ══════════════ */
+(async () => {
+  if (REDUCE) return;
+  const hero = $("#e-hero"), canvas = $("#e-stage");
+  if (!canvas || !window.WebGL2RenderingContext) return;
+  const probe = canvas.getContext("webgl2") || canvas.getContext("webgl");
+  if (!probe) return;
+
+  let THREE;
+  try { THREE = await import(THREE_URL); }
+  catch { return; }                       // Datei fehlt → Standbild bleibt, Seite läuft weiter
+
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha:true, antialias:true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(42, 1, .1, 100);
+  camera.position.set(0, 0, 15.5);
+  // pivot = Neigung (hängende Discokugel), ball = Drehung. Getrennt, damit
+  // sich Neigung und Drehung nicht gegenseitig verbiegen.
+  const pivot = new THREE.Group(); scene.add(pivot);
+  const ball = new THREE.Group(); pivot.add(ball);
+  pivot.rotation.z = -0.05;
+
+  // „360" scharf als Canvas-Textur, echt im Raum
+  const mk = () => {
+    const S = 2048, c = document.createElement("canvas");
+    c.width = S; c.height = S >> 1;
+    const x = c.getContext("2d");
+    x.font = `900 ${Math.round(S*.42)}px dds-q, Impact, sans-serif`;
+    x.textAlign = "center"; x.textBaseline = "middle";
+    x.shadowColor = "rgba(169,216,236,.85)"; x.shadowBlur = S*.05; x.fillStyle = "#fff";
+    x.fillText("360", c.width/2, c.height/2); x.shadowBlur = 0;
+    x.fillText("360", c.width/2, c.height/2);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+  };
+  let plate;
+  const build = () => {
+    if (plate) scene.remove(plate);
+    plate = new THREE.Mesh(new THREE.PlaneGeometry(6.7, 3.35),
+      new THREE.MeshBasicMaterial({ map: mk(), transparent:true, depthWrite:false }));
+    scene.add(plate);
+  };
+  build(); if (document.fonts?.ready) document.fonts.ready.then(build);
+
+  /* Karte: leicht durchscheinende Glasfläche mit eisblauem Rand, darauf die
+     freigestellte Figur. Wird gleich auf einen flachen Quader gelegt — die
+     sichtbare Kante macht daraus eine Karte statt eines Fotos. */
+  const CW = 512, CH = 640, RAD = 46;
+
+  /* Sichtbaren Bereich eines Freistellers finden (Alpha > 12). */
+  const bbox = img => {
+    const c = document.createElement("canvas");
+    const s = 96, r = Math.min(s/img.width, s/img.height);
+    c.width = Math.max(1, Math.round(img.width*r));
+    c.height = Math.max(1, Math.round(img.height*r));
+    const x = c.getContext("2d", { willReadFrequently:true });
+    x.drawImage(img, 0, 0, c.width, c.height);
+    const d = x.getImageData(0,0,c.width,c.height).data;
+    let x0=c.width, y0=c.height, x1=0, y1=0, leer=true;
+    for (let py=0; py<c.height; py++)
+      for (let px=0; px<c.width; px++)
+        if (d[(py*c.width+px)*4+3] > 12){
+          leer=false;
+          if(px<x0)x0=px; if(px>x1)x1=px; if(py<y0)y0=py; if(py>y1)y1=py;
+        }
+    if (leer) return { x:0, y:0, w:img.width, h:img.height };
+    const k = 1/r, pad = 2;
+    return { x:Math.max(0,(x0-pad)*k), y:Math.max(0,(y0-pad)*k),
+             w:Math.min(img.width, (x1-x0+1+pad*2)*k),
+             h:Math.min(img.height,(y1-y0+1+pad*2)*k) };
+  };
+
+  const cardTexture = img => {
+    const c = document.createElement("canvas"); c.width = CW; c.height = CH;
+    const x = c.getContext("2d");
+    // Keine runden Ecken mehr in der Textur — die Rundung macht jetzt die
+    // Geometrie. Sonst läge die Kante neben der Ecke statt daran.
+    x.save();
+    const g = x.createLinearGradient(0,0,CW*.7,CH);
+    g.addColorStop(0,  "rgba(104,126,137,.72)");
+    g.addColorStop(.45,"rgba(41,41,41,.68)");
+    g.addColorStop(1,  "rgba(22,22,22,.76)");
+    x.fillStyle = g; x.fillRect(0,0,CW,CH);
+
+    // Leerraum des Freistellers wegschneiden, sonst sitzt die Figur verloren
+    // auf der Karte — die PNGs sind quadratisch mit viel Transparenz.
+    const b = bbox(img);
+    const s = Math.min(CW*.94/b.w, CH*.97/b.h);
+    const w = b.w*s, h = b.h*s;
+    x.drawImage(img, b.x, b.y, b.w, b.h, (CW-w)/2, CH-h-CH*.01, w, h);
+
+    // Glanzkante oben links
+    const sh = x.createLinearGradient(0,0,CW*.55,CH*.42);
+    sh.addColorStop(0,"rgba(255,255,255,.16)"); sh.addColorStop(1,"rgba(255,255,255,0)");
+    x.fillStyle = sh; x.fillRect(0,0,CW,CH);
+    x.restore();
+
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+    t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    return t;
+  };
+
+  const RADIUS = 7.3, TILE = 1.7, tiles = [];
+  const COUNT = innerWidth < 760 ? 20 : 32;     // Handy: weniger Kacheln, gleiche Wirkung
+  /* Karte als extrudierte Rundform: die Dicke folgt exakt der Silhouette.
+     Bei einem Quader läuft die Kante gerade an der runden Ecke vorbei. */
+  const KW = TILE, KH = TILE*1.25, KR = TILE*.13, KD = TILE*.07;
+  const shape = (() => {
+    const s = new THREE.Shape(), x = -KW/2, y = -KH/2;
+    s.moveTo(x+KR, y);
+    s.lineTo(x+KW-KR, y);          s.quadraticCurveTo(x+KW, y,     x+KW, y+KR);
+    s.lineTo(x+KW,    y+KH-KR);    s.quadraticCurveTo(x+KW, y+KH,  x+KW-KR, y+KH);
+    s.lineTo(x+KR,    y+KH);       s.quadraticCurveTo(x,    y+KH,  x, y+KH-KR);
+    s.lineTo(x,       y+KR);       s.quadraticCurveTo(x,    y,     x+KR, y);
+    return s;
+  })();
+  const geo = new THREE.ExtrudeGeometry(shape, {
+    depth: KD, bevelEnabled: true, bevelThickness: KD*.22, bevelSize: KD*.22,
+    bevelSegments: 1, curveSegments: 10 });
+  geo.center();
+  /* UVs aus der Position ableiten — sonst wird das Bild auf der Vorderseite
+     nach Weltmaßen statt 0..1 gemappt. Die Schmalseiten sind einfarbig,
+     deren UVs spielen keine Rolle. */
+  {
+    const p = geo.attributes.position, uv = geo.attributes.uv;
+    for (let i = 0; i < p.count; i++)
+      uv.setXY(i, (p.getX(i)+KW/2)/KW, (p.getY(i)+KH/2)/KH);
+    uv.needsUpdate = true;
+  }
+  const ld = new THREE.TextureLoader();
+  const texs = (await Promise.all(COACHES.map(c => new Promise(res =>
+    ld.load(MEDIA + "cut/" + c.img.replace(/\.jpe?g$/i, ".png"),
+            t => res(cardTexture(t.image)), undefined, () => res(null))
+  )))).filter(Boolean);
+  if (!texs.length) return;
+
+  const kante = () => new THREE.MeshBasicMaterial({
+    color:0x9fcfe3, transparent:true, depthWrite:false });   // Schnittkante der Karte
+
+  for (let i = 0; i < COUNT; i++){
+    const front = new THREE.MeshBasicMaterial({
+      map: texs[i % texs.length], transparent:true, depthWrite:false });
+    // ExtrudeGeometry liefert zwei Gruppen: 0 = Vorder-/Rückfläche, 1 = Schmalseite
+    const mats = [front, kante()];
+    const m = new THREE.Mesh(geo, mats);
+    m.userData.mats = mats;
+    const k = i + .5, phi = Math.acos(1 - 2*k/COUNT), th = Math.PI*(1+Math.sqrt(5))*k;
+    m.userData.home = new THREE.Vector3(
+      RADIUS*Math.cos(th)*Math.sin(phi), RADIUS*Math.cos(phi)*.84, RADIUS*Math.sin(th)*Math.sin(phi));
+    m.userData.delay = (i / COUNT) * .55;      // gestaffelter Auftritt
+    m.position.copy(m.userData.home);
+    // Ausrichtung „nach außen" merken — daraus entsteht später die Neigung
+    m.userData.out = new THREE.Quaternion().setFromUnitVectors(
+      new THREE.Vector3(0,0,1), m.userData.home.clone().normalize());
+    ball.add(m); tiles.push(m);
+  }
+  hero.classList.add("is-3d");
+  // Poster nach dem Überblenden hart entfernen — kein Schleier, kein Speicher
+  setTimeout(() => { const p = $(".e-poster", hero); if (p) p.style.display = "none"; }, 1200);
+
+  let vel = .0016, drag = false, lx = 0, ly = 0, moved = 0;
+  let tiltX = 0, px = 0, py = 0;          // Ziel-Neigung aus Zeigerposition
+  const hint = $("#e-hint");
+  canvas.addEventListener("pointerdown", e => { drag = true; lx = e.clientX; ly = e.clientY; moved = 0; });
+  addEventListener("pointermove", e => {
+    // sanfte Parallaxe: die Kugel neigt sich leicht zum Zeiger, auch ohne Ziehen
+    const r = canvas.getBoundingClientRect();
+    if (r.width){ px = (e.clientX - r.left) / r.width - .5; py = (e.clientY - r.top) / r.height - .5; }
+    if (!drag) return;
+    const dx = e.clientX - lx, dy = e.clientY - ly; lx = e.clientX; ly = e.clientY;
+    moved += Math.abs(dx) + Math.abs(dy);
+    vel = dx * .00034;
+    tiltX = Math.max(-.4, Math.min(.4, tiltX + dy * .0026));
+    if (moved > 40 && hint) hint.classList.add("off");
+  });
+  addEventListener("pointerup", () => drag = false);
+  addEventListener("pointercancel", () => drag = false);
+  setTimeout(() => hint && hint.classList.add("off"), 6500);
+
+  // Scrollen gibt der Kugel Schwung — die Seite fühlt sich verbunden an
+  let lastY = scrollY;
+  addEventListener("scroll", () => {
+    const d = scrollY - lastY; lastY = scrollY;
+    vel += Math.max(-.004, Math.min(.004, d * .00006));
+  }, { passive:true });
+
+  const fit = () => {
+    const r = canvas.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    renderer.setSize(r.width, r.height, false);
+    camera.aspect = r.width / r.height;
+    camera.position.z = r.width < 760 ? 19.5 : 15.5;
+    camera.updateProjectionMatrix();
+  };
+  // ResizeObserver statt nur window.resize: greift auch, wenn der Canvas
+  // beim ersten Messen noch keine Maße hatte (Elementor baut spät auf)
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(hero);
+  addEventListener("resize", fit);
+  fit(); requestAnimationFrame(fit);
+
+  // Pausieren, solange der Hero nicht im Bild ist oder der Tab im Hintergrund läuft.
+  // document.hidden wird bei JEDEM Frame frisch gelesen — sonst bliebe die Kugel
+  // nach einem Tab-Wechsel für immer stehen.
+  let onScreen = true;
+  if (window.IntersectionObserver)
+    new IntersectionObserver(es => { onScreen = es[0].isIntersecting; }, { threshold:0 }).observe(hero);
+
+  const clock = new THREE.Clock(), wp = new THREE.Vector3();
+  const invParent = new THREE.Quaternion(), faceCam = new THREE.Quaternion();
+  const nrm = new THREE.Vector3();
+  const ease = x => 1 - Math.pow(1 - x, 3);
+  let t0 = -1;
+
+  renderer.setAnimationLoop(() => {
+    if (!onScreen || document.hidden) return;
+    const t = clock.getElapsedTime();
+    if (t0 < 0) t0 = t;
+    const age = t - t0;
+
+    /* --- Drehung + Trägheit --- */
+    if (!drag) vel += (.0016 - vel) * .018;
+    ball.rotation.y += vel;
+
+    /* --- Neigung: Zeiger-Parallaxe + langsames Pendeln, nie ganz still --- */
+    const wobble = Math.sin(t * .21) * .045;
+    const aimX = drag ? tiltX : tiltX * .9 + (-py * .16) + wobble;
+    const aimZ = -0.05 + (px * .035) + Math.cos(t * .17) * .012;
+    if (!drag) tiltX += (0 - tiltX) * .01;
+    pivot.rotation.x += (aimX - pivot.rotation.x) * .05;
+    pivot.rotation.z += (aimZ - pivot.rotation.z) * .05;
+
+    /* --- Lichtstreifen: wandert um die Kugel wie ein Scheinwerfer über Spiegel --- */
+    const lightAngle = t * .55;
+    const lx2 = Math.cos(lightAngle), lz2 = Math.sin(lightAngle);
+
+    /* Kacheln sollen IMMER zur Kamera zeigen. Sie hängen aber in zwei
+       rotierenden Gruppen — die lokale Drehung muss die Elterndrehung
+       herausrechnen, sonst kippen sie mit weg und verschwinden. */
+    ball.updateWorldMatrix(true, false);
+    ball.getWorldQuaternion(invParent).invert();
+    faceCam.copy(invParent).multiply(camera.quaternion);
+
+    for (const m of tiles){
+      /* Auftritt: aus der Mitte nach außen, gestaffelt */
+      const p = Math.min(1, Math.max(0, (age - m.userData.delay) / 1.5));
+      const grow = ease(p);
+      m.position.copy(m.userData.home).multiplyScalar(.12 + grow * .88);
+
+      /* Fast zur Kamera (93 %), ein Rest Kugel-Normale bleibt für die Tiefe.
+         Mehr Neigung lässt rechteckige Karten schief aussehen. */
+      m.quaternion.copy(m.userData.out).slerp(faceCam, .93);
+      m.getWorldPosition(wp);
+
+      /* Tiefe: Größe, Deckkraft UND Helligkeit — erst das macht es räumlich */
+      const d = (wp.z + RADIUS) / (2 * RADIUS);          // 0 hinten … 1 vorn
+      m.scale.setScalar((.55 + d * .72) * (.35 + grow * .65));
+
+      /* Facetten-Glanz: Karten nahe der Lichtrichtung blitzen auf */
+      nrm.copy(wp).normalize();
+      const hit = Math.max(0, nrm.x * lx2 + nrm.z * lz2);
+      const shine = Math.pow(hit, 6) * .55;
+      const lum = .34 + d * .66 + shine;
+
+      const ms = m.userData.mats;                        // [0] Karte, [1] Kante
+      const op = (.10 + d * d * .90) * grow;
+      ms[0].opacity = op * .94;                          // leicht durchscheinend
+      ms[1].opacity = op * .92;
+      ms[0].color.setRGB(lum, lum, Math.min(1.25, lum * 1.06));
+      const e = .45 + d * .55 + shine * 1.4;             // Kante leuchtet im Streiflicht
+      ms[1].color.setRGB(e * .62, e * .81, e * .89);
+    }
+
+    /* --- „360" atmet und reagiert leicht auf den Zeiger --- */
+    if (plate){
+      plate.position.y = Math.sin(t * .55) * .13;
+      plate.position.x = px * .35;
+      plate.rotation.z = Math.sin(t * .35) * .006;
+      const pop = Math.min(1, age / 1.1);
+      plate.scale.setScalar(.86 + ease(pop) * .14);
+    }
+    renderer.render(scene, camera);
+  });
+})();
+
+})();
+</script>
+
+</body></html>
