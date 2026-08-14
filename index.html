@@ -312,32 +312,56 @@
   border-radius:999px;border:1px solid rgba(255,255,255,.24);color:rgba(255,255,255,.7);
   transition:background .25s,color .25s,border-color .25s}
 .dds-e .e-day[aria-selected=true]{background:var(--ice);color:var(--ink);border-color:var(--ice)}
-.dds-e .e-slots{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;align-items:start}
-.dds-e .e-slot{display:grid;grid-template-columns:98px 58px 1fr;grid-template-rows:auto auto;
-  gap:2px 14px;align-items:center;padding:12px 16px;border-radius:14px;
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
-  transition:border-color .3s,background .3s,transform .3s var(--ease)}
-.dds-e .e-slot:hover{background:rgba(169,216,236,.1);border-color:rgba(169,216,236,.42);
-  transform:translateX(3px)}
-.dds-e .e-slot .t{grid-row:1/3;font-family:dds-q;font-weight:900;color:var(--ice);
-  font-size:clamp(15px,1.5vw,19px);line-height:1.1}
-.dds-e .e-slot .th{grid-row:1/3;width:58px;height:70px;object-fit:cover;object-position:50% 22%;
+/* Zeitblöcke: was gleichzeitig läuft, steht nebeneinander */
+.dds-e .e-slots{display:grid;gap:10px}
+.dds-e .e-block{display:grid;grid-template-columns:104px 1fr;gap:4px 18px;align-items:start;
+  padding:14px 18px;border-radius:16px;background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.1)}
+.dds-e .e-block .bt{grid-row:1/3;font-family:dds-q;font-weight:900;color:var(--ice);
+  font-size:clamp(17px,1.9vw,24px);line-height:1.05;padding-top:2px}
+.dds-e .e-par{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.dds-e .e-card{display:grid;grid-template-columns:56px 1fr;grid-template-rows:auto auto auto;
+  gap:0 13px;align-items:center;padding:10px 12px;border-radius:12px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);
+  transition:background .3s,border-color .3s,transform .35s var(--ease)}
+.dds-e .e-card:hover{background:rgba(169,216,236,.11);border-color:rgba(169,216,236,.45);
+  transform:translateY(-2px)}
+.dds-e .e-card .th{grid-row:1/4;width:56px;height:68px;object-fit:cover;object-position:50% 20%;
   border-radius:9px;background:#1e1e1e}
-.dds-e .e-slot .w{font-family:dds-q;font-weight:900;text-transform:uppercase;
-  font-size:clamp(15px,1.5vw,19px);line-height:1.05;align-self:end}
-.dds-e .e-slot .lv{font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(255,255,255,.5);align-self:start}
-.dds-e .e-slot.is-adv{border-left:3px solid var(--ice)}
-.dds-e .e-slot.is-pause{grid-column:1/-1;grid-template-columns:98px 1fr;grid-template-rows:auto;
-  background:rgba(169,216,236,.09);border-color:rgba(169,216,236,.24);justify-items:start}
-.dds-e .e-slot.is-pause .t{grid-row:1}
-.dds-e .e-slot.is-pause .w{font-family:dds-o;font-weight:700;font-size:12px;letter-spacing:.16em;
-  color:rgba(255,255,255,.62);align-self:center}
-.dds-e .e-checkin{grid-column:1/-1}
-@media(max-width:820px){
-  .dds-e .e-slots{grid-template-columns:1fr}
-  .dds-e .e-slot{grid-template-columns:82px 48px 1fr}
-  .dds-e .e-slot .th{width:48px;height:58px}
+.dds-e .e-card .w{font-family:dds-q;font-weight:900;text-transform:uppercase;
+  font-size:clamp(14px,1.45vw,18px);line-height:1.05;align-self:end}
+.dds-e .e-card .lv{font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.52);margin-top:3px}
+.dds-e .e-card .bis{font-weight:500;font-size:10.5px;color:rgba(255,255,255,.34);
+  letter-spacing:.06em;align-self:start;margin-top:2px}
+.dds-e .e-card.is-adv{border-left:3px solid var(--ice)}
+
+/* Solo-Block: nur ein Workshop — alle sind zusammen im Raum */
+.dds-e .e-block.is-solo{background:linear-gradient(100deg,rgba(169,216,236,.16),rgba(169,216,236,.05) 62%);
+  border-color:rgba(169,216,236,.5);grid-template-columns:104px 1fr auto}
+.dds-e .e-block.is-solo .alle{grid-column:3;grid-row:1;justify-self:end;align-self:start;
+  font-weight:700;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink);background:var(--ice);border-radius:999px;padding:5px 12px}
+.dds-e .e-block.is-solo .e-par{grid-column:2/4}
+@media(max-width:620px){.dds-e .e-block.is-solo{grid-template-columns:76px 1fr}
+  .dds-e .e-block.is-solo .alle{grid-column:2;justify-self:start;margin-bottom:6px}
+  .dds-e .e-block.is-solo .e-par{grid-column:1/-1}}
+.dds-e .e-block.is-solo .e-card{background:rgba(18,18,18,.42);border-color:rgba(169,216,236,.34);
+  padding:14px 16px}
+.dds-e .e-block.is-solo .e-card .th{width:74px;height:90px}
+.dds-e .e-block.is-solo .e-card .w{font-size:clamp(17px,2.1vw,26px)}
+.dds-e .e-block.is-solo .e-card .lv{color:var(--ice);opacity:.85}
+
+/* Pause */
+.dds-e .e-block.is-pause{grid-template-columns:104px 1fr;padding:11px 18px;
+  background:rgba(169,216,236,.07);border-color:rgba(169,216,236,.2)}
+.dds-e .e-block.is-pause .bt{grid-row:1;font-size:clamp(14px,1.5vw,18px);opacity:.8}
+.dds-e .e-block.is-pause .pl{font-weight:700;font-size:11.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(255,255,255,.55);align-self:center}
+@media(max-width:620px){
+  .dds-e .e-block,.dds-e .e-block.is-pause{grid-template-columns:76px 1fr}
+  .dds-e .e-card{grid-template-columns:46px 1fr}
+  .dds-e .e-card .th{width:46px;height:56px}
 }
 .dds-e .e-checkin{font-weight:700;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--ice);margin-bottom:12px}
@@ -814,20 +838,41 @@ $("#e-shop").innerHTML = SHOP.map(s => `
   days.innerHTML = keys.map((k,i) =>
     `<button class="e-day" role="tab" data-k="${k}" aria-selected="${i===0}">${esc(PLAN[k].label)}</button>`).join("");
   const BILD = Object.fromEntries(COACHES.map(c => [c.name, c.img]));
+
+  /* Nach Startzeit gruppieren: Was gleichzeitig läuft, steht nebeneinander.
+     Läuft in einem Block nur EIN Workshop, sind alle zusammen im Raum —
+     das ist der Höhepunkt des Tages und wird entsprechend gezeigt. */
   const draw = k => {
     const d = PLAN[k];
+    const bloecke = [];
+    for (const [t, w, l] of d.slots){
+      const start = t.split("–")[0].trim();
+      const letzt = bloecke[bloecke.length - 1];
+      if (letzt && letzt.start === start && w && letzt.pause === false) letzt.items.push([t,w,l]);
+      else bloecke.push({ start, pause: !w, items: [[t,w,l]] });
+    }
     slots.innerHTML =
       `<p class="e-checkin">${esc(d.checkin || "")}</p>` +
-      d.slots.map(([t,w,l]) => {
-        if (!w) return `<div class="e-slot is-pause"><span class="t">${esc(t)}</span>
-          <span class="w">${esc(l)}</span></div>`;
-        const img = BILD[w];
-        const adv = /Advanced/i.test(l);
-        return `<div class="e-slot${adv ? " is-adv" : ""}">
-          <span class="t">${esc(t)}</span>
-          ${img ? `<img class="th" src="${MEDIA}${esc(img)}" alt="" loading="lazy" decoding="async">` : ""}
-          <span class="w">${esc(w)}</span>
-          <span class="lv">${esc(l)}</span></div>`;
+      bloecke.map(b => {
+        if (b.pause){
+          const [t,,l] = b.items[0];
+          return `<div class="e-block is-pause"><span class="bt">${esc(t)}</span>
+            <span class="pl">${esc(l)}</span></div>`;
+        }
+        const solo = b.items.length === 1;
+        return `<div class="e-block${solo ? " is-solo" : ""}">
+          <span class="bt">${esc(b.start)}</span>
+          ${solo ? `<span class="alle">Alle zusammen</span>` : ""}
+          <div class="e-par">${b.items.map(([t,w,l]) => {
+            const img = BILD[w], adv = /Advanced/i.test(l);
+            const bis = (t.split("–")[1] || "").trim();
+            return `<div class="e-card${adv ? " is-adv" : ""}">
+              ${img ? `<img class="th" src="${MEDIA}${esc(img)}" alt="" loading="lazy" decoding="async">` : ""}
+              <span class="w">${esc(w)}</span>
+              <span class="lv">${esc(l)}</span>
+              ${bis ? `<span class="bis">bis ${esc(bis)}</span>` : ""}
+            </div>`;
+          }).join("")}</div></div>`;
       }).join("");
   };
   draw(keys[0]);
