@@ -503,18 +503,47 @@
 .dds-e .e-last .e-lead{margin-left:auto;margin-right:auto}
 .dds-e .e-last .e-btn{font-size:clamp(16px,2vw,22px);padding:19px 40px;margin-top:24px}
 
-/* ===================== STICKY (mobil) ===================== */
-.dds-e .e-sticky{position:sticky;bottom:0;z-index:60;display:none;align-items:center;
-  justify-content:space-between;gap:12px;background:rgba(39,39,39,.96);
-  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
-  border-top:1px solid rgba(169,216,236,.3);padding:11px 16px;
-  padding-bottom:calc(11px + env(safe-area-inset-bottom))}
-.dds-e .e-sticky .l{font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-  color:rgba(255,255,255,.6);line-height:1.35}
-.dds-e .e-sticky .l b{color:var(--ice);display:block;font-family:dds-q;font-weight:900;font-size:16px}
+/* ===================== FUSSZEILE ===================== */
+.dds-e .e-foot{background:#1f1f1f;border-top:1px solid rgba(169,216,236,.18);
+  padding:clamp(40px,5vw,68px) var(--pad) clamp(30px,3.4vw,44px)}
+.dds-e .e-footgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:clamp(24px,3vw,44px)}
+.dds-e .e-footh{font-family:dds-q;font-weight:900;text-transform:uppercase;
+  font-size:clamp(14px,1.5vw,18px);color:var(--ice);margin-bottom:10px}
+.dds-e .e-foot p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.6)}
+.dds-e .e-foot a{color:#fff;border-bottom:1px solid rgba(169,216,236,.4);padding-bottom:1px;
+  transition:color .25s,border-color .25s}
+.dds-e .e-foot a:hover{color:var(--ice);border-color:var(--ice)}
+.dds-e .e-by{margin-top:clamp(28px,3.4vw,46px);padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.09);font-size:11.5px!important;
+  color:rgba(255,255,255,.34)!important;letter-spacing:.04em}
+.dds-e .e-by a{color:rgba(255,255,255,.55);border-bottom-color:rgba(255,255,255,.18)}
+
+/* ===================== MITLAUFENDE LEISTE ===================== */
+.dds-e .e-sticky{position:sticky;bottom:0;z-index:60;display:flex;align-items:center;
+  justify-content:space-between;gap:clamp(10px,2vw,28px);background:rgba(31,31,31,.96);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-top:1px solid rgba(169,216,236,.32);padding:11px clamp(16px,3vw,40px);
+  padding-bottom:calc(11px + env(safe-area-inset-bottom));
+  transform:translateY(110%);transition:transform .5s var(--ease)}
+.dds-e .e-sticky.an{transform:none}
+.dds-e .e-sticky .cd{display:flex;flex-direction:column;line-height:1.15}
+.dds-e .e-sticky .cd b{font-family:dds-q;font-weight:900;color:var(--ice);
+  font-size:clamp(15px,1.9vw,22px);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.dds-e .e-sticky .cd i{font-style:normal;font-weight:700;font-size:9px;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:3px}
+.dds-e .e-sticky .l{font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);line-height:1.3;margin-left:auto;text-align:right}
+.dds-e .e-sticky .l b{color:#fff;display:block;font-family:dds-q;font-weight:900;
+  font-size:clamp(15px,1.9vw,22px);margin-top:2px}
 .dds-e .e-sticky a{background:var(--ice);color:var(--ink);font-family:dds-q;font-weight:900;
-  text-transform:uppercase;font-size:13.5px;padding:12px 20px;border-radius:999px;white-space:nowrap}
-@media(max-width:860px){.dds-e .e-sticky{display:flex}}
+  text-transform:uppercase;font-size:clamp(12.5px,1.5vw,15px);padding:13px clamp(18px,2.4vw,30px);
+  border-radius:999px;white-space:nowrap;transition:transform .3s var(--ease)}
+.dds-e .e-sticky a:hover{transform:translateY(-2px)}
+@media(max-width:520px){
+  .dds-e .e-sticky{gap:10px;padding-left:14px;padding-right:14px}
+  .dds-e .e-sticky .l{display:none}         /* Preis steht auf den Karten */
+}
 
 /* ===================== BEWEGUNG AUS ===================== */
 @media(prefers-reduced-motion:reduce){
@@ -701,7 +730,30 @@
   </div>
 </section>
 
-<div class="e-sticky">
+<!-- ========================= FUSSZEILE ========================= -->
+<footer class="e-foot">
+  <div class="e-wrap">
+    <div class="e-footgrid">
+      <div>
+        <p class="e-footh">360 D!Grees Special Coaching</p>
+        <p>16.–18. Oktober 2026<br>D!'s Dance World<br>Holzmarktstraße 66 · 10179 Berlin</p>
+      </div>
+      <div>
+        <p class="e-footh">Fragen zum Event</p>
+        <p><a href="mailto:info@deesworld.de">info@deesworld.de</a></p>
+      </div>
+      <div>
+        <p class="e-footh">D!'s Dance School</p>
+        <p><a href="https://www.deesworld.de/dance-school/">deesworld.de/dance-school</a></p>
+      </div>
+    </div>
+    <p class="e-by">Seite gebaut von
+      <a href="https://movesociety.de" target="_blank" rel="noopener">Move&nbsp;Society</a></p>
+  </div>
+</footer>
+
+<div class="e-sticky" id="e-sticky">
+  <span class="cd"><b id="e-scd">–</b><i id="e-scdl">Early Bird</i></span>
   <span class="l">Full Pass ab<b>249 €</b></span>
   <a data-tix="full" href="#">Ticket sichern</a>
 </div>
@@ -888,6 +940,28 @@ $$("[data-tix]").forEach(a => {
   }
 });
 
+/* ══════════════ Beim Neuladen wieder oben anfangen ══════════════
+   Browser stellen die alte Scrollposition wieder her — man landet dann
+   mitten im Stundenplan statt im Header. Anker-Links bleiben unberührt. */
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+if (!location.hash) {
+  scrollTo(0, 0);
+  addEventListener("load", () => { if (!location.hash) scrollTo(0, 0); }, { once:true });
+}
+
+/* ══════════════ Leiste einblenden, sobald der Header durch ist ══════════════ */
+{
+  /* Bewusst über die Scrollposition statt über einen Beobachter: Feuert der
+     nicht, bliebe die Leiste für immer unsichtbar — und mit ihr der Kaufknopf. */
+  const bar = $("#e-sticky"), hero = $("#e-hero");
+  if (bar && hero){
+    const pruef = () => bar.classList.toggle("an", scrollY > hero.offsetHeight * .7);
+    addEventListener("scroll", pruef, { passive:true });
+    addEventListener("resize", pruef);
+    pruef();
+  }
+}
+
 /* ══════════════ Mosaik + Wiederholungstypo ══════════════ */
 ["e-mos0","e-mos1","e-mos2"].forEach(id => {
   const el = $("#" + id); if (!el) return;
@@ -954,6 +1028,11 @@ $("#e-shop").innerHTML = SHOP.map(s => `
     if (rest)  rest.textContent  = eb
       ? `danach ${eur(TICKETS[0].regulaer)} · Tagespass ${eur(TICKETS[1].regulaer)}`
       : "Tickets solange verfügbar";
+
+    // Dieselbe Uhr, kompakt, in der mitlaufenden Leiste
+    const sc = $("#e-scd"), scl = $("#e-scdl");
+    if (sc)  sc.textContent  = `${tage} T · ${zz(std)}:${zz(min)}:${zz(s)}`;
+    if (scl) scl.textContent = eb ? "Early Bird endet" : "Bis zum Event";
   };
   tick(); setInterval(tick, 1000);
 }
@@ -1461,6 +1540,9 @@ if ("IntersectionObserver" in window && !REDUCE){
     renderer.setSize(r.width, r.height, false);
     camera.aspect = r.width / r.height;
     camera.position.z = r.width < 760 ? 19.5 : 15.5;
+    /* Auf breiten Schirmen die Szene anheben: sonst sitzt die „360" genau dort,
+       wo von unten die Wortmarke hochwächst, und beides klebt aneinander. */
+    scene.position.y = r.width < 760 ? 0 : 1.5;
     camera.updateProjectionMatrix();
   };
   // ResizeObserver statt nur window.resize: greift auch, wenn der Canvas
