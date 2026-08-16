@@ -307,9 +307,12 @@
 /* Auf dem Handy als 9:16-Karte, wie eine Story — Video oben, Infos darunter */
 @media(max-width:720px){
   .dds-e .e-lb{padding:14px}
+  /* Breite führt, Höhe folgt. Andersherum klemmt der Bildschirmrand die
+     Breite ab und das 9:16 stimmt nicht mehr. */
   .dds-e .e-lb .box{grid-template-columns:1fr;grid-template-rows:63% 1fr;
-    aspect-ratio:9/16;height:min(88svh,720px);width:auto;max-width:100%;
-    max-height:88svh;overflow:hidden;border-radius:20px}
+    width:min(100%, calc(min(88svh, 720px) * 9 / 16));
+    height:auto;aspect-ratio:9/16;max-height:88svh;
+    overflow:hidden;border-radius:20px}
   .dds-e .e-lb .vis{aspect-ratio:auto;height:100%}
   .dds-e .e-lb .txt{padding:16px 18px 20px;overflow:auto;-webkit-overflow-scrolling:touch}
   .dds-e .e-lb .txt h3{font-size:clamp(22px,7vw,32px)}
@@ -1173,6 +1176,8 @@ function openLb(i){
     }</ul>
     <a class="e-btn" href="${esc(EVENT)}" target="_blank" rel="noopener" style="margin-top:6px">Ticket sichern →</a>`;
   lb.classList.add("on"); document.body.style.overflow = "hidden";
+  // Autoplay-Attribut allein reicht auf manchen Handys nicht
+  const lv = $("video", lb); if (lv){ const p = lv.play(); if (p && p.catch) p.catch(()=>{}); }
 }
 function closeLb(){ lb.classList.remove("on"); document.body.style.overflow = ""; $("#e-lbvis").innerHTML = ""; }
 $("#e-lbx").addEventListener("click", closeLb);
