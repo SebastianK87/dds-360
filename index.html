@@ -121,9 +121,12 @@
 .dds-e .e-hbot .r{display:flex;flex-direction:column;align-items:center}
 .dds-e .e-mark{font-family:dds-q;font-weight:900;text-transform:uppercase;line-height:.82;
   font-size:clamp(30px,5.6vw,76px);letter-spacing:-.01em;margin-bottom:.34em}
-.dds-e .e-mark span{color:var(--ice)}
+.dds-e .e-mark .ex{color:var(--ice)}
+/* Nur für Vorleseprogramme und Suchmaschinen — sichtbar steht die 360 in der Szene */
+.dds-e .e-vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
 .dds-e .e-sub{font-weight:700;text-transform:uppercase;letter-spacing:.3em;
-  font-size:clamp(9px,1.1vw,13px);color:var(--ice);margin-bottom:1.1em}
+  font-size:clamp(9px,1.1vw,13px);color:var(--ice);margin-top:.55em;margin-bottom:1.1em}
 .dds-e .e-facts{display:flex;flex-wrap:wrap;justify-content:center;gap:.4em 1.5em;font-weight:700;
   font-size:clamp(12px,1.4vw,17px);text-transform:uppercase;margin-bottom:1.3em}
 .dds-e .e-facts b{color:var(--ice)}
@@ -140,8 +143,8 @@
   .dds-e .e-hbot .e-btn{width:100%}
   .dds-e .e-hint{display:none}
   /* Wortmarke darf auf dem Handy größer atmen */
-  .dds-e .e-mark{font-size:clamp(38px,13vw,64px);margin-bottom:.28em}
-  .dds-e .e-sub{font-size:10px;letter-spacing:.26em;margin-bottom:.9em}
+  .dds-e .e-mark{font-size:clamp(38px,13vw,64px);margin-bottom:0}
+  .dds-e .e-sub{font-size:10px;letter-spacing:.26em;margin-top:.5em;margin-bottom:1em}
   /* Fakten als 2×2-Raster statt umbrechender Zeile */
   .dds-e .e-facts{display:grid;grid-template-columns:repeat(2,auto);justify-content:center;
     gap:8px 22px;font-size:13.5px;margin-bottom:1.1em}
@@ -285,6 +288,18 @@
 .dds-e .e-coach .e-nm{font-family:dds-q;font-weight:900;text-transform:uppercase;line-height:.87;
   font-size:clamp(16px,1.85vw,22px);margin-bottom:5px}
 .dds-e .e-coach .e-st{font-weight:500;font-size:12.5px;color:rgba(255,255,255,.72)}
+/* Ein Fakt auf der Kachel — zwei Zeilen, dann abgeschnitten */
+.dds-e .e-coach .e-fakt{margin-top:6px;font-weight:500;font-size:11.5px;line-height:1.35;
+  color:var(--ice);opacity:.9;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+  overflow:hidden}
+@media(max-width:520px){.dds-e .e-coach .e-fakt{-webkit-line-clamp:3;font-size:11px}}
+
+/* Fakten in der Coach-Karte */
+.dds-e .e-lbfakten{display:grid;gap:8px;margin:14px 0 4px}
+.dds-e .e-lbfakten li{position:relative;padding-left:18px;font-size:14px;line-height:1.55;
+  color:rgba(255,255,255,.8)}
+.dds-e .e-lbfakten li::before{content:"/";position:absolute;left:0;color:var(--ice);
+  font-family:dds-q;font-weight:900}
 .dds-e .e-coach .e-play{position:absolute;z-index:5;top:11px;right:11px;width:34px;height:34px;
   border-radius:50%;background:rgba(169,216,236,.94);color:var(--ink);display:grid;place-items:center;
   font-size:11px;transition:transform .4s var(--ease)}
@@ -527,8 +542,12 @@
 
   <div class="e-hbot">
     <div class="l">
-      <p class="e-sub">Special Coaching</p>
-      <h1 class="e-mark">D<span>!</span>Grees</h1>
+      <!-- Die große „360" steht in der 3D-Szene und nicht im Text. Damit die
+           Überschrift trotzdem vollständig ist, steht sie hier unsichtbar mit
+           drin: h1 = „360 D!Grees Special Coaching". -->
+      <h1 class="e-mark"><span class="e-vh">360 </span>D<span class="ex">!</span>Grees<span
+        class="e-vh"> Special Coaching</span></h1>
+      <p class="e-sub" aria-hidden="true">Special Coaching</p>
       <p class="e-facts">
         <span><b>3</b> Tage</span><span><b>18</b> Coaches</span>
         <span><b>28</b> Workshops</span><span>Beginner–Advanced</span>
@@ -773,26 +792,45 @@ const PLAN = {
 /* COACHES — 18, Reihenfolge wie auf dem A1-Plakat (oben links → unten rechts).
    Die Unterrichtszeiten werden automatisch aus PLAN abgeleitet, nichts doppelt pflegen.
    ⚠️ land + stil sind noch NICHT bestätigt — leer lassen heißt: wird nicht angezeigt.
+
+   fakten: kurze Belege, erste Zeile steht auf der Kachel, alle in der Coach-Karte.
+   ⚠️ Nur eintragen, was bestätigt ist. Die vorhandenen stammen aus öffentlichen
+   Quellen (Wikipedia, Agentur- und Schulprofile) und müssen von den Coaches
+   freigegeben werden, bevor die Seite live geht. Leer = wird nicht angezeigt.
+
    img/vid: Dateiname im MEDIA-Ordner. vid leer = nur Standbild, Kachel bleibt ruhig. */
 const COACHES = [
-  { name:"Kane Walcott",       land:"", stil:"", img:"kane-walcott.jpg",       vid:"kane-walcott.mp4",       bio:"" },
-  { name:"Jaron Johnson",      land:"", stil:"", img:"jaron-johnson.jpg",      vid:"",                       bio:"" },
-  { name:"Elizabeth",          land:"", stil:"", img:"elizabeth.jpg",          vid:"elizabeth.mp4",          bio:"" },
-  { name:"Daniel Wijngaarden", land:"", stil:"", img:"daniel-wijngaarden.jpg", vid:"daniel-wijngaarden.mp4", bio:"" },
-  { name:"Raik Preetz",        land:"", stil:"", img:"raik-preetz.jpg",        vid:"",                       bio:"" },
-  { name:"Jean Mendes",        land:"", stil:"", img:"jean-mendes.jpg",        vid:"jean-mendes.mp4",        bio:"" },
-  { name:"Nils Feiler",        land:"", stil:"", img:"nils-feiler.jpg",        vid:"",                       bio:"" },
-  { name:"Léany",              land:"", stil:"", img:"leany.jpg",              vid:"leany.mp4",              bio:"" },
-  { name:"Drew Shuttleworth",  land:"", stil:"", img:"drew-shuttleworth.jpg",  vid:"drew-shuttleworth.mp4",  bio:"" },
-  { name:"India Rischko",      land:"", stil:"", img:"india-rischko.jpg",      vid:"",                       bio:"" },
-  { name:"Emma Kant",          land:"", stil:"", img:"emma-kant.jpg",          vid:"",                       bio:"" },
-  { name:"Sarah Abilov",       land:"", stil:"", img:"sarah-abilov.jpg",       vid:"",                       bio:"" },
-  { name:"Lili",               land:"", stil:"", img:"lili.jpg",               vid:"",                       bio:"" },
-  { name:"Kike Granero",       land:"", stil:"", img:"kike-granero.jpg",       vid:"kike-granero.mp4",       bio:"" },
-  { name:"Pepo",               land:"", stil:"", img:"pepo.jpg",               vid:"pepo.mp4",               bio:"" },
-  { name:"Ekaterina Leonova",  land:"", stil:"", img:"ekaterina-leonova.jpg",  vid:"",                       bio:"" },
-  { name:"Amie Mills",         land:"", stil:"", img:"amie-mills.jpg",         vid:"",                       bio:"" },
-  { name:"Nikeata Thompson",   land:"", stil:"", img:"nikeata-thompson.jpg",   vid:"",                       bio:"" }
+  { name:"Kane Walcott", land:"UK", stil:"", img:"kane-walcott.jpg", vid:"kane-walcott.mp4", bio:"",
+    fakten:["Tanzte bei Britain's Got Talent, den BRIT Awards und Netflix' „Dance 100“",
+            "Ausgebildet am London Studio Centre, unterrichtet dort heute selbst"] },
+  { name:"Jaron Johnson", land:"", stil:"", img:"jaron-johnson.jpg", vid:"", bio:"", fakten:[] },
+  { name:"Elizabeth", land:"", stil:"", img:"elizabeth.jpg", vid:"elizabeth.mp4", bio:"", fakten:[] },
+  { name:"Daniel Wijngaarden", land:"", stil:"", img:"daniel-wijngaarden.jpg", vid:"daniel-wijngaarden.mp4", bio:"", fakten:[] },
+  { name:"Raik Preetz", land:"", stil:"", img:"raik-preetz.jpg", vid:"", bio:"", fakten:[] },
+  { name:"Jean Mendes", land:"", stil:"", img:"jean-mendes.jpg", vid:"jean-mendes.mp4", bio:"", fakten:[] },
+  { name:"Nils Feiler", land:"", stil:"", img:"nils-feiler.jpg", vid:"", bio:"", fakten:[] },
+  { name:"Léany", land:"", stil:"", img:"leany.jpg", vid:"leany.mp4", bio:"", fakten:[] },
+  { name:"Drew Shuttleworth", land:"UK", stil:"", img:"drew-shuttleworth.jpg", vid:"drew-shuttleworth.mp4", bio:"",
+    fakten:["Aus der Nähe von Manchester, arbeitet heute von London aus",
+            "Vertrat Großbritannien bei Hip Hop International"] },
+  { name:"India Rischko", land:"", stil:"", img:"india-rischko.jpg", vid:"", bio:"", fakten:[] },
+  { name:"Emma Kant", land:"", stil:"", img:"emma-kant.jpg", vid:"", bio:"", fakten:[] },
+  { name:"Sarah Abilov", land:"", stil:"", img:"sarah-abilov.jpg", vid:"", bio:"", fakten:[] },
+  { name:"Lili", land:"", stil:"", img:"lili.jpg", vid:"", bio:"", fakten:[] },
+  { name:"Kike Granero", land:"Spanien", stil:"", img:"kike-granero.jpg", vid:"kike-granero.mp4", bio:"",
+    fakten:["Ausgebildet in Los Angeles, New York und London",
+            "Unterrichtet am Institute of the Arts Barcelona"] },
+  { name:"Pepo", land:"", stil:"", img:"pepo.jpg", vid:"pepo.mp4", bio:"", fakten:[] },
+  { name:"Ekaterina Leonova", land:"", stil:"", img:"ekaterina-leonova.jpg", vid:"", bio:"",
+    fakten:["Vierfache Siegerin bei „Let's Dance“ — 2017, 2018, 2019 und 2025",
+            "Tanzt seit dem zehnten Lebensjahr, sieben Jahre davon Ballett"] },
+  { name:"Amie Mills", land:"UK", stil:"", img:"amie-mills.jpg", vid:"", bio:"",
+    fakten:["Ausgebildet an der Italia Conti Academy in London",
+            "Tanzte in der ersten Staffel „The Greatest Dancer“ auf BBC One"] },
+  { name:"Nikeata Thompson", land:"", stil:"", img:"nikeata-thompson.jpg", vid:"", bio:"",
+    fakten:["Tanzte für Seeed, Jan Delay und Lena Meyer-Landrut",
+            "Jurorin bei „Got to Dance“ und „Masters of Dance“",
+            "Ihre Autobiografie „Schwarz auf Weiß“ stand auf der Spiegel-Bestsellerliste"] }
 ];
 
 /* PLAKAT-ANORDNUNG — Positionen 1:1 aus 360-Plakat-A1.pdf abgeleitet.
@@ -1073,6 +1111,7 @@ $("#e-grid").innerHTML = COACHES.map((c,i) => {
       ${c.land ? `<p class="e-flag">${esc(c.land)}</p>` : ""}
       <p class="e-nm">${esc(c.name)}</p>
       <p class="e-st">${esc(c.stil || SLOTS_VON(c.name).map(s=>s.tag).join(" · "))}</p>
+      ${(c.fakten && c.fakten[0]) ? `<p class="e-fakt">${esc(c.fakten[0])}</p>` : ""}
     </figcaption>
   </figure>`;
 }).join("");
@@ -1168,6 +1207,8 @@ function openLb(i){
     <h3>${esc(c.name)}</h3>
     ${c.stil ? `<p class="st">${esc(c.stil)}</p>` : ""}
     ${c.bio ? `<p>${esc(c.bio)}</p>` : ""}
+    ${(c.fakten && c.fakten.length) ? `<ul class="e-lbfakten">${
+      c.fakten.map(f => `<li>${esc(f)}</li>`).join("")}</ul>` : ""}
     <p class="lbl">Unterrichtet beim 360</p>
     <ul class="e-lbslots">${
       slots.length
