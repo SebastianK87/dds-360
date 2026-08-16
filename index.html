@@ -135,9 +135,21 @@
   pointer-events:none;transition:opacity .6s;white-space:nowrap}
 .dds-e .e-hint.off{opacity:0}
 @media(max-width:760px){
-  .dds-e .e-hbot{flex-direction:column;align-items:stretch}
+  .dds-e .e-hbot{align-items:stretch;padding-bottom:clamp(26px,7vw,40px);gap:18px}
+  .dds-e .e-hbot .r{align-self:stretch}
   .dds-e .e-hbot .e-btn{width:100%}
   .dds-e .e-hint{display:none}
+  /* Wortmarke darf auf dem Handy größer atmen */
+  .dds-e .e-mark{font-size:clamp(38px,13vw,64px);margin-bottom:.28em}
+  .dds-e .e-sub{font-size:10px;letter-spacing:.26em;margin-bottom:.9em}
+  /* Fakten als 2×2-Raster statt umbrechender Zeile */
+  .dds-e .e-facts{display:grid;grid-template-columns:repeat(2,auto);justify-content:center;
+    gap:8px 22px;font-size:13.5px;margin-bottom:1.1em}
+  .dds-e .e-venue{font-size:12px;line-height:1.5;max-width:30ch;margin-inline:auto}
+  .dds-e .e-top{font-size:8.5px;letter-spacing:.11em;padding:14px 16px}
+}
+@media(max-width:400px){
+  .dds-e .e-top span:last-child{display:none}   /* sonst rückt es an den Rand */
 }
 
 /* ===================== 02 ZAHLEN — die Ansage ===================== */
@@ -292,7 +304,19 @@
 .dds-e .e-lb .box{position:relative;width:min(940px,100%);max-height:88svh;overflow:auto;
   background:var(--ink);border:1px solid rgba(169,216,236,.28);border-radius:var(--r);
   display:grid;grid-template-columns:minmax(0,44%) minmax(0,1fr)}
-@media(max-width:720px){.dds-e .e-lb .box{grid-template-columns:1fr}}
+/* Auf dem Handy als 9:16-Karte, wie eine Story — Video oben, Infos darunter */
+@media(max-width:720px){
+  .dds-e .e-lb{padding:14px}
+  .dds-e .e-lb .box{grid-template-columns:1fr;grid-template-rows:63% 1fr;
+    aspect-ratio:9/16;height:min(88svh,720px);width:auto;max-width:100%;
+    max-height:88svh;overflow:hidden;border-radius:20px}
+  .dds-e .e-lb .vis{aspect-ratio:auto;height:100%}
+  .dds-e .e-lb .txt{padding:16px 18px 20px;overflow:auto;-webkit-overflow-scrolling:touch}
+  .dds-e .e-lb .txt h3{font-size:clamp(22px,7vw,32px)}
+  .dds-e .e-lb .txt .lbl{margin:12px 0 8px}
+  .dds-e .e-lbslots li{padding:8px 11px;font-size:12.5px;grid-template-columns:66px 1fr}
+  .dds-e .e-lb .x{width:40px;height:40px;top:12px;right:12px}
+}
 .dds-e .e-lb .vis{position:relative;aspect-ratio:4/5;background:#1a1a1a}
 .dds-e .e-lb .vis img,.dds-e .e-lb .vis video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .dds-e .e-lb .txt{padding:clamp(22px,3vw,38px)}
@@ -1111,12 +1135,11 @@ if (!coarse){
     const f = e.target.closest(".e-coach"); if (f) stop(f);
   }, true);
 }
+/* Tippen öffnet immer die Karte — auch auf dem Handy. Vorher lief das Video
+   nur klein in der Kachel, was man kaum erkannt hat. */
 grid.addEventListener("click", e => {
   const f = e.target.closest(".e-coach"); if (!f) return;
-  if (coarse && !f.hasAttribute("data-novideo")){
-    f.classList.contains("playing") ? stop(f) : play(f);
-    return;
-  }
+  if (coarse) stop(f);                       // eventuelle Inline-Wiedergabe beenden
   openLb(+f.dataset.i);
 });
 grid.addEventListener("keydown", e => {
