@@ -277,8 +277,11 @@
 
 .dds-e .e-coach .e-meta{transition:transform .6s var(--ease)}
 .dds-e .e-coach.playing .e-meta{transform:translateY(-4px)}
+/* Der Verlauf muss so weit reichen, wie der Text wachsen kann — sonst steht
+   die Schrift bei Kacheln mit Fakt mitten im Gesicht. */
 .dds-e .e-coach::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
-  background:linear-gradient(to top,rgba(18,18,18,.94) 0%,rgba(18,18,18,.32) 42%,transparent 70%)}
+  background:linear-gradient(to top,rgba(14,14,14,.97) 0%,rgba(14,14,14,.88) 22%,
+    rgba(14,14,14,.55) 45%,rgba(14,14,14,.18) 66%,transparent 84%)}
 .dds-e .e-coach .e-ring{position:absolute;inset:0;z-index:5;border-radius:var(--r);pointer-events:none;
   border:2px solid transparent;transition:border-color .35s}
 .dds-e .e-coach:hover .e-ring,.dds-e .e-coach.playing .e-ring{border-color:var(--ice)}
