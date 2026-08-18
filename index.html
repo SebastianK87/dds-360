@@ -511,6 +511,10 @@
 .dds-e .e-footh{font-family:dds-q;font-weight:900;text-transform:uppercase;
   font-size:clamp(14px,1.5vw,18px);color:var(--ice);margin-bottom:10px}
 .dds-e .e-foot p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.6)}
+.dds-e .e-footlist{list-style:none;margin:0;padding:0}
+.dds-e .e-footlist li{margin-bottom:7px;font-size:14px}
+.dds-e .e-footlist a{color:rgba(255,255,255,.62);border-bottom:0;transition:color .25s}
+.dds-e .e-footlist a:hover{color:var(--ice);border-bottom:0}
 .dds-e .e-foot a{color:#fff;border-bottom:1px solid rgba(169,216,236,.4);padding-bottom:1px;
   transition:color .25s,border-color .25s}
 .dds-e .e-foot a:hover{color:var(--ice);border-color:var(--ice)}
@@ -733,21 +737,43 @@
 <!-- ========================= FUSSZEILE ========================= -->
 <footer class="e-foot">
   <div class="e-wrap">
+    <!-- Aufbau wie die Fußzeile von deesworld.de: von hier kommt man überall
+         wieder hin. Die Eventseite soll sich wie ein Teil der Homepage anfühlen. -->
     <div class="e-footgrid">
       <div>
-        <p class="e-footh">360 D!Grees Special Coaching</p>
+        <p class="e-footh">Dance School</p>
+        <ul class="e-footlist">
+          <li><a href="https://www.deesworld.de/dance-school/">D!'s Dance School</a></li>
+          <li><a href="https://www.deesworld.de/dance-school/kursplan/">Kursplan</a></li>
+          <li><a href="https://www.deesworld.de/dance-school/coaches/">Coaches</a></li>
+          <li><a href="https://www.eversports.de/sp/ds-dance-school">Mitglied werden</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="e-footh">D!'s World</p>
+        <ul class="e-footlist">
+          <li><a href="https://www.deesworld.de/">Startseite</a></li>
+          <li><a href="https://www.deesworld.de/dance-club/">Dance Club</a></li>
+          <li><a href="https://www.deesworld.de/coaching/">Coaching</a></li>
+          <li><a href="https://www.deesworld.de/coaching/uber-detlef/">Über Detlef</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="e-footh">Dieses Event</p>
         <p>16.–18. Oktober 2026<br>D!'s Dance World<br>Holzmarktstraße 66 · 10179 Berlin</p>
+        <p style="margin-top:10px"><a href="mailto:info@deesworld.de">info@deesworld.de</a></p>
       </div>
       <div>
-        <p class="e-footh">Fragen zum Event</p>
-        <p><a href="mailto:info@deesworld.de">info@deesworld.de</a></p>
-      </div>
-      <div>
-        <p class="e-footh">D!'s Dance School</p>
-        <p><a href="https://www.deesworld.de/dance-school/">deesworld.de/dance-school</a></p>
+        <p class="e-footh">Rechtliches</p>
+        <ul class="e-footlist">
+          <li><a href="https://www.deesworld.de/impressum/">Impressum</a></li>
+          <li><a href="https://www.deesworld.de/datenschutz/">Datenschutz</a></li>
+          <li><a href="https://www.deesworld.de/agb/">AGB</a></li>
+          <li><a href="https://www.deesworld.de/widerrufsbelehrung/">Widerruf</a></li>
+        </ul>
       </div>
     </div>
-    <p class="e-by">Seite gebaut von
+    <p class="e-by">© 2026 Detlef „D!" Soost · D!'s World &nbsp;·&nbsp; Seite gebaut von
       <a href="https://movesociety.de" target="_blank" rel="noopener">Move&nbsp;Society</a></p>
   </div>
 </footer>
